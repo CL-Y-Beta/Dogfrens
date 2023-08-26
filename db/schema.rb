@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_130900) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_26_030547) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_bookmarks_on_listing_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "discounts", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.integer "percentage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_discounts_on_listing_id"
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
@@ -39,5 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_130900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "listings"
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "discounts", "listings"
   add_foreign_key "listings", "users"
 end
