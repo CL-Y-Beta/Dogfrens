@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_130900) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_26_033054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "service_provider_id", null: false
+    t.bigint "dog_owner_id", null: false
+    t.boolean "confirmed"
+    t.float "booking_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_owner_id"], name: "index_bookings_on_dog_owner_id"
+    t.index ["listing_id"], name: "index_bookings_on_listing_id"
+    t.index ["service_provider_id"], name: "index_bookings_on_service_provider_id"
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
@@ -27,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_130900) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.text "comment"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,5 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_130900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "listings"
+  add_foreign_key "bookings", "users", column: "dog_owner_id"
+  add_foreign_key "bookings", "users", column: "service_provider_id"
   add_foreign_key "listings", "users"
+  add_foreign_key "reviews", "bookings"
 end
