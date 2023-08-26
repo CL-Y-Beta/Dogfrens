@@ -1,0 +1,12 @@
+ <h1> This is the seller's booking page </h1>
+ <%= link_to "As buyer", buyer_bookings_path %>
+<p> As seller </p>
+<% @bookings.each do |booking| %>
+
+  <div class="booking-class">
+    <p><b><%= booking.listing.title %></b></p>
+    <p><%= booking.listing.description %></p>
+    <p><%= booking.listing.description %></p>
+    <%= link_to "View Details >", booking_path(booking)%>
+  </div>
+<% end %>

@@ -34,3 +34,18 @@ puts 'Creating 10 fake listings...'
   )
   listing.save!
 end
+
+puts "Creating 10 bookings... "
+10.times do
+  listing = Listing.order("RANDOM()").first
+  user = User.order("RANDOM()").first
+  booking = Booking.new(
+    listing_id: listing.id,
+    service_provider_id: user.id,
+    dog_owner_id: user.id,
+    confirmed: false,
+    booking_price: listing.price
+  )
+  booking.save
+  puts "booking #{booking.id} has been created."
+end
