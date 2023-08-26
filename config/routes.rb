@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "listings#home"
   resources :listings
+
   get "/my-listings", to: "listings#my_listings"
   ## listings need to have a /my-listings to fetch the current-user's own postings/listings
   resources :bookings, only: %i[show create]
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get "/my-bookings-as-buyer", to: "bookings#buyer_index", as: :buyer_bookings
   ## bookings index have to be /my-bookings/seller & my-bookings/buyer
   resources :users, only: %i[new show create edit update destroy]
+
   resources :bookmarks, only: %i[new create index destroy]
   ## bookmarks also need a /my_bookmarks
   # resources :discounts, only: %i[new create]
