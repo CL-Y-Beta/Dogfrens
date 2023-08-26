@@ -1,0 +1,26 @@
+<h1>Booking Details</h1>
+
+<%= link_to "View Listing", listing_path(@booking.listing_id) %>
+
+<h2> <%= @booking.listing.title%> </h2>
+
+
+<h2> SGD <%= @booking.booking_price%> </h2>
+
+<h3> <% if @booking.confirmed == true %>
+      <%= "STATUS: CONFIRMED" %>
+    <% else %>
+      <%= "STATUS: UNCONFIRMED" %>
+    <% end %>
+</h3>
+
+<h3> Description </h3>
+<p><%= @booking.listing.description %></p>
+
+
+<h3> Dog-Deal Creator </h3>
+
+<h4> USERNAME </h4>
+
+<h4> Contact Information </h4>
+<h4> View Profile </h4>
