@@ -1,0 +1,11 @@
+<div class="container">
+  <h1><%= @listing.title %></h1>
+  <%= render @listing %>
+
+  <div>
+    <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
+    <%= link_to "Back to listings", root_path %>
+
+    <%= button_to "Destroy this listing", @listing, method: :delete %>
+  </div>
+</div>
