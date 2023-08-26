@@ -1,0 +1,6 @@
+<h1>My Bookmarks</h1>
+<%= simple_form_for(bookmarks_path) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Create Bookmark", class: "btn btn-primary" %>
+  <%= f.submit "Delete Bookmark", class: "btn btn-primary" %>
+<% end %>
