@@ -9,6 +9,10 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @listing = Listing.find(params[:id])
+  end
+
+  def my_listings
   end
 
   def my_listings
@@ -20,12 +24,12 @@ class ListingsController < ApplicationController
     @listing = Listing.new
   end
 
-  def create
+  def create ## Create is still not working.
     @listing = Listing.new(listing_params)
     @listing.user = current_user
 
     if @listing.save
-      redirect_to @listing, notice: "Lising was successfully created."
+      redirect_to @listing, notice: "Listing was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
