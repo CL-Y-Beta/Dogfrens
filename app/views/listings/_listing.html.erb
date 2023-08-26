@@ -1,30 +1,16 @@
-<div class="container">
-  <div id="<%= dom_id listing %>">
-  <p>
-    <strong>Title:</strong>
-    <%= listing.title %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= listing.description %>
-  </p>
+  <div class="listing-card" style="background-image: url('<%= asset_path('Kallang_River_at_Bishan_Park.jpg') %>');">
+    <div class="listing-bottom">
+      <div class="listing-details">
+        <p><%= listing.title %></p>
+        <div class="listing-prices">
+          <b><h5>$<%= listing.price%></h5></b>
+          <p><%=%>40% off</p>
+        </div>
+      </div>
 
-  <p>
-    <strong>Location:</strong>
-    <%= listing.location %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= listing.price %>
-  </p>
-
-  <p>
-    <strong>Quantity left:</strong>
-    <%= listing.quantity_left %>
-  </p>
-
+      <div class="listing-button">
+      <%= link_to "View Deal", listing_path(listing) %>
+      </div>
+    </div>
   </div>
-
-</div>

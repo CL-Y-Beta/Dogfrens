@@ -1,0 +1,59 @@
+.listing-card {
+  display: flex;
+  align-items: flex-end; /* Align items horizontally at the end */
+  width: 300px;
+  height: 325px;
+  background-size: cover;
+  border-radius: 20px;
+  border: 0.2em solid #000000;
+}
+
+.listing-bottom {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: white;
+  height: 130px;
+  width: 300px;
+  border-top: 0.2em solid #000000;
+  border-radius: 18px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.listing-button {
+  display:flex;
+  justify-content: flex-end;
+}
+
+.listing-button a {
+  background-color: $green;
+  padding: 4px 7px 4px 7px;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #000000;
+}
+
+.listing-details  {
+  display:flex;
+  justify-content: space-between;
+}
+
+.listing-prices  {
+  display:flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.listing-prices h5 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.listing-prices p {
+  font-size: 0.7rem;
+}

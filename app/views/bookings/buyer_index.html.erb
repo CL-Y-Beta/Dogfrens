@@ -2,10 +2,12 @@
 
  <%= link_to "As seller", seller_bookings_path %>
  <p> As buyer </p>
+
 <% @bookings.each do |booking| %>
 
   <div class="booking-class">
     <p>Listing Name: <%= booking.listing.title %></p><br>
     <p>Listing Description: <%= booking.listing.description %></p>
   </div>
+
 <% end %>

@@ -1,4 +1,10 @@
 class BookmarksController < ApplicationController
+
+  ## Need to change this such that it fetches the current_user bookmarks
+  def index
+    @bookmark = Bookmark.all
+  end
+
   def show
     @bookmark = Bookmark.find(params[id])
   end

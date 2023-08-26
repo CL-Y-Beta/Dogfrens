@@ -3,15 +3,7 @@
   <div id="My_listings">
     <% @listings.each do |listing| %>
 
-      <p><strong>Title:</strong> <%= listing.title %></p>
-      <p><strong>Description:</strong> <%= listing.description %></p>
-      <p><strong>Location:</strong> <%= listing.location %></p>
-      <p><strong>Price:</strong> <%= listing.price %></p>
-      <p><strong>Quantity_left:</strong> <%= listing.quantity_left %></p>
-
-      <p>
-        <%= link_to "Show this listing", listing_path(listing) %>
-      </p>
+      <%= render listing %>
     <% end %>
   </div>
 </div>
