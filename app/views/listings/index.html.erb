@@ -12,7 +12,18 @@
   <% end %>
 </div>
 
-<%= link_to "New listing", new_listing_path %>
+<div>
+ <% if user_signed_in? %>
+    <%= link_to "My listing", my_listings_path %>
+  <% end %>
 </div>
+
+<div>
+ <% if user_signed_in? %>
+    <%= link_to "New listing", new_listing_path %>
+  <% end %>
+</div>
+
+<%= link_to "Home", root_path %>
 
 </div>

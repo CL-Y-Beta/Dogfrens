@@ -11,6 +11,11 @@ class ListingsController < ApplicationController
   def show
   end
 
+  def my_listings
+    @listings = current_user.listings
+    # @listings = Listing.where(user_id: current_user.id)
+  end
+
   def new
     @listing = Listing.new
   end

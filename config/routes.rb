@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "listings#home"
   resources :listings
+  get "/my_listings", to: "listings#my_listings"
+
   resources :bookmarks, only: %i[new create index destroy]
   resources :discounts, only: %i[new create]
 end
