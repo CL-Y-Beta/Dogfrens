@@ -1,0 +1,24 @@
+<h1>Wishlist</h1>
+
+<% listings = @bookmarks.map do |bookmark|%>
+    <% bookmark.listing %>
+<% end %>
+
+<% listings.each do |listing| %>
+  <div class="listing-card" style="background-image: url('<%= asset_path('Kallang_River_at_Bishan_Park.jpg') %>');">
+    <div class="listing-bottom">
+      <div class="listing-details">
+        <p id="listing-title"><%= listing.title %></p>
+        <div class="listing-prices">
+          <b><h5>$<%= listing.price%></h5></b>
+          <p><%=%>40% off</p>
+        </div>
+      </div>
+
+      <div class="listing-button">
+      <%= link_to "View Deal", listing_path(listing) %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

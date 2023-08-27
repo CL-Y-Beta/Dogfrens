@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "listings#home"
   resources :listings
+  # do
+  #   post 'bookmark', to: 'bookmarks#create', on: :member
+  # end
 
   get "/my-listings", to: "listings#my_listings"
   ## listings need to have a /my-listings to fetch the current-user's own postings/listings
