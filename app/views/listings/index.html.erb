@@ -7,23 +7,25 @@
 
     <%= render listing %>
     <p>
-      <%= link_to "Show this listing", listing %>
+      <%= link_to "Show this listing", listing_path(listing), class: "btn btn-primary me-1" %>
     </p>
   <% end %>
 </div>
 
-<div>
- <% if user_signed_in? %>
-    <%= link_to "My listing", my_listings_path %>
-  <% end %>
-</div>
+<div style="display: flex; justify-content: flex-start;">
+  <div>
+  <% if user_signed_in? %>
+      <%= link_to "My listing", my_listings_path, class: "btn btn-primary me-1" %>
+    <% end %>
+  </div>
 
-<div>
- <% if user_signed_in? %>
-    <%= link_to "New listing", new_listing_path %>
-  <% end %>
-</div>
+  <div>
+  <% if user_signed_in? %>
+      <%= link_to "New listing", new_listing_path, class: "btn btn-primary me-1" %>
+    <% end %>
+  </div>
 
-<%= link_to "Home", root_path %>
+  <%= link_to "Home", root_path, class: "btn btn-primary me-1" %>
 
+  </div>
 </div>
