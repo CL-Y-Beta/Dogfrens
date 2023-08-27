@@ -17,7 +17,17 @@
 
   <p>
     <strong>Price:</strong>
-    <%= listing.price %>
+    $<%= listing.price %>
+  </p>
+
+  <p>
+    <strong>Discount:</strong>
+  <%= "#{listing.discount}%" %>
+  </p>
+
+  <p>
+    <strong>FINAL PRICE:</strong>
+    $<%= (listing.price - (listing.price * listing.discount / 100.0)).round %>
   </p>
 
   <p>
