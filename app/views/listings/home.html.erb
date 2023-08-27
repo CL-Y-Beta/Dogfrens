@@ -4,6 +4,7 @@
 <div>
  <% if user_signed_in? %>
     <%= link_to "My listing", my_listings_path %>
+    <%= link_to "Account", user_path(current_user) %>
   <% end %>
 </div>
 <%= link_to "All Index", listings_path %>
