@@ -28,6 +28,7 @@ puts 'Creating 10 fake listings...'
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph(sentence_count: 2),
     price: Faker::Number.number(digits: 3),
+    discount: Faker::Number.between(from: 1, to: 8) * 10,
     location: Faker::Address.street_address,
     user_id: User.all.sample.id,
     quantity_left: Faker::Number.between(from: 1, to: 20)
