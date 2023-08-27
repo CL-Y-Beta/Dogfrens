@@ -9,9 +9,13 @@
       <p><strong>Price:</strong> <%= listing.price %></p>
       <p><strong>Quantity_left:</strong> <%= listing.quantity_left %></p>
 
-      <p>
-        <%= link_to "Show this listing", listing_path(listing) %>
-      </p>
+      <div style="display: flex; justify-content: flex-start;">
+        <%= link_to "Edit this listing", edit_listing_path(listing), class: "btn btn-primary me-1" %>
+        <%= link_to "Destroy this listing", @listing, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary me-1" %>
+        <%= link_to "Show this listing", listing_path(listing), class: "btn btn-primary me-1" %>
+      </div>
     <% end %>
   </div>
+  <%= link_to "Back", :back, class: "btn btn-primary" %>
+  <%#= link_to "Back", :back %>
 </div>

@@ -18,6 +18,10 @@ class BookingsController < ApplicationController
   # end
 
   def create
+    @listing = Listing.find(params[:listing_id])
+    listing_id = params[:listing_id] || session[:current_listing_id]
+    user_id = current_user.id
+
     booking_params = { listing_id: @listing.id,
                        service_provider_id: @listing.user_id,
                        dog_owner_id: current_user.id,
