@@ -1,0 +1,12 @@
+<h1>Edit Your Profile</h1>
+
+<%= simple_form_for(current_user) do |f| %>
+  <%= f.input :email %>
+  <%= f.submit "Update Profile", class: "btn btn-primary" %>
+<% end %>
+
+<%= simple_form_for(current_user) do |f| %>
+  <% link_to user_path(current_user) do %>
+    <%= f.submit "Back to Profile Page", class: "btn btn-secondary" %>
+    <% end %>
+<% end %>

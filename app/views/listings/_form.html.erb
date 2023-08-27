@@ -9,11 +9,12 @@
       <%= f.input :location %>
       <%= f.input :price %>
       <%= f.input :image_url, as: :string %>
+      <%= f.input :discount %>
       <%= f.input :quantity_left %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit %>
+      <%= f.button :submit , class: "btn btn-primary" %>
     </div>
   <% end %>
 
