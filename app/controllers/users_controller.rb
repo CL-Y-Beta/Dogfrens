@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-  end
-
-  def new
-    @user = User.new
+    @user = current_user
   end
 
   def create
@@ -13,19 +9,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to user_path(current_user), notice: 'Profile updated successfully'
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = current_user
     @user.destroy
 
-    redirect_to listings_path, status: :see_other
+    redirect_to root_path, status: :see_other, notice: 'Account deleted successfully'
   end
 
   private
