@@ -1,0 +1,8 @@
+<h1>Create Your Profile</h1>
+
+<%= simple_form_for(current_user) do |f| %>
+  <%= f.input :description %>
+  <%= f.submit "Create Your Profile", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Skip this step', root_path, class: "btn btn-secondary" %>
