@@ -1,21 +1,41 @@
 <h1> This is the buyer's booking page </h1>
+<div class="d-flex justify-content-center">
+  <p><%= link_to "As seller", seller_bookings_path %></p>
+  <p style="margin-left: 20px;">As buyer</p>
+</div>
 
-  <div class="booking-index">
-    <%= link_to "As seller", seller_bookings_path %>
-    <p> As buyer </p>
-  </div>
-
-
-<h3>YOUR REQUESTS </h3>
-<% @bookings.each do |booking| %>
-
-  <% if booking.confirmed == false %>
-    <div class="booking-card">
-      <p class="booking-title"><%= booking.listing.title %></p><br>
-      <p><%= booking.listing.user.email%></p>
+<p>YOUR REQUESTS (<%= @bookings.where(confirmed: false).count %>)</p>
+<div class="container">
+ <% @bookings.each do |booking| %>
+  <% if !booking.confirmed %>
+    <div class="card w-100 mb-4 bg-white">
+      <div class="card-body">
+        <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
+        <p class="card-text">Requested to <%= booking.listing.user.email %></p>
+      </div>
+      <div class="card-body">
+        <p>Yet to be confirmed</p>
+        <%= link_to "View Details >", booking_path(booking)%>
+      </div>
     </div>
   <% end %>
+ <% end %>
+</div>
 
-<% end %>
-
-<h3>PREVIOUSLY CONFIRMED REQUESTS </h3>
+<p>PREVIOUSLY CONFIRMED REQUESTS (<%= @bookings.where(confirmed: true).count %>)</p>
+<div class="container">
+  <% @bookings.each do |booking| %>
+    <% if booking.confirmed %>
+      <div class="card w-100 mb-4 bg-white">
+        <div class="card-body">
+          <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
+          <p class="card-text">Requested to <%= booking.listing.user.email %></p>
+        </div>
+        <div class="card-body">
+          <p>Redeemed</p>
+          <%= link_to "View Details >", booking_path(booking) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
