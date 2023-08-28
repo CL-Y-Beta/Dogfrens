@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/my-bookings-as-buyer", to: "bookings#buyer_index", as: :buyer_bookings
   ## bookings index have to be /my-bookings/seller & my-bookings/buyer
   resources :users, only: %i[show create edit update destroy]
+  get "/my-account", to: "users#my_account"
 
   resources :bookmarks, only: %i[new create index destroy]
   ## bookmarks also need a /my_bookmarks
