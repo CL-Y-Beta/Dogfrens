@@ -4,13 +4,18 @@
       <div class="listing-details">
         <p id="listing-title"><%= listing.title %></p>
         <div class="listing-prices">
-          <b><h5>$<%= listing.price%></h5></b>
-          <p><%=%>40% off</p>
-        </div>
+            <% final_price = listing.price - (listing.price * listing.discount / 100.0) %>
+            <b><h5>$<%= final_price.round %></h5></b>
+            <p style="white-space: nowrap;"><strong><%= listing.discount %>% OFF!</strong></p>
+          </div>
       </div>
 
       <div class="listing-details-bottom">
-      <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(listing) %>
+        <% if current_user && listing.user_id == current_user.id %>
+          <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(listing) %>
+        <% else %>
+          <div class="placeholder" style="width:14px; background-color:transparent;"></div>
+        <% end %>
       <%= link_to "View Deal", listing_path(listing), class: "view-deal" %>
       </div>
     </div>
