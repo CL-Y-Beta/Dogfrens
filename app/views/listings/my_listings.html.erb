@@ -1,4 +1,7 @@
+
 <div class="container">
+
+  <%= link_to "< back", :back, class: "back-button" %>
   <h1>Manage Dog-Deals (<%= @listings.count%>)</h1>
   <div id="My_listings">
     <% @listings.each do |listing| %>
@@ -6,6 +9,4 @@
       <%= render listing %>
     <% end %>
   </div>
-  <%= link_to "Back", :back, class: "btn btn-primary" %>
-  <%#= link_to "Back", :back %>
 </div>

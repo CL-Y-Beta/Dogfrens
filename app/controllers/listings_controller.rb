@@ -12,6 +12,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @bookmark = Bookmark.new
+    @listings = Listing.all.limit(6)
   end
 
   def my_listings
@@ -50,7 +51,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing.destroy
-    redirect_to root_path, notice: "Listing was successfully destroyed.", status: :see_other
+    redirect_to my_listings_path, notice: "Listing was successfully destroyed.", status: :see_other
   end
 
 private

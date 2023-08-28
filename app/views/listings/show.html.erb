@@ -1,25 +1,80 @@
 <div class="container">
-  <h1><%= @listing.title %></h1>
-  <%= render @listing %>
 
-  <div style="display: flex; justify-content: flex-start;">
-    <%= link_to "Back to listings", listings_path, class: "btn btn-primary me-1" %>
-    <% if current_user && @listing.user_id == current_user.id %>
-      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary me-1" %>
-    <% end %>
-    <% if current_user %>
-    <%= button_to "Book this", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
-    <% end %>
-    <%#= form_tag bookings_path, method: :post do %>
-      <%#= hidden_field_tag :listing_id, @listing.id %>
-      <%#= hidden_field_tag :user_id, current_user.id %>
-      <%#= submit_tag 'Book this', class: "me-1" %>
-    <%# end %>
-    <% if current_user %>
-    <%= button_to "Bookmark this", url_for(controller: :bookmarks, action: :create, listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
-    <% end %>
-    <% if current_user && @listing.user_id == current_user.id %>
-      <%= link_to "Destroy this listing", @listing, method: :delete, data: { confirm: "Are you sure?" } , class: "btn btn-primary me-1"%>
+  <%= link_to "< back", :back, class: "back-button" %>
+
+  <div class="listing-show-header">
+    <h1><%= @listing.title %></h1>
+    <% if current_user.id == @listing.user_id %>
+    <% # delete button still doesn't work... troubleshoot later %>
+    <%= link_to image_tag("delete_symbol.svg", width: "14px"), listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(@listing) %>
     <% end %>
   </div>
+
+  <div class="listing-image-and-key-info">
+    <div id="listing-image-border">
+      <div id="listing-image" style="background-image: url(<%= image_path('Kallang_River_at_Bishan_Park.jpg') %>);"></div>
+    </div>
+
+    <div class="listing-key-information">
+
+      <div class="listing-key-information-top">
+        <p><b><%= @listing.title %></b><p>
+        <% if @listing.discount != 0 %>
+          <h5><s>S$<%= @listing.price %></s></h5>
+          <% discounted_price = @listing.price * @listing.discount/100 %>
+          <h1>S$<%= discounted_price %></h1>
+          <div id="display-discount">
+            <h4><%= @listing.discount %>% off</h4>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="listing-key-information-bottom">
+
+        <div class="listing-seller-info">
+          <%= image_tag("Kallang_River_at_Bishan_Park.jpg", width: "30px", height: "30px", class: "profile-pic", style: "border-radius: 50%;") %>
+
+          <div class="listing-seller-name">
+            <p id="created-by">Listing created by<p>
+            <p><b>Username_99</b></p>
+          </div>
+        </div>
+
+        <div class="listing-buttons">
+          <% if current_user && @listing.user_id != current_user.id %>
+          <%= button_to "Book Now", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+          <% end %>
+          <% if current_user %>
+          <%= button_to "Wishlist It", url_for(controller: :bookmarks, action: :create, listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="listing-show-bottom">
+
+    <h3>Description</h3>
+    <p><%= @listing.description  %></p>
+
+    <h3>How to Redeem</h3>
+    <p><%= @listing.description  %></p>
+
+    <h3>Location</h3>
+    <p><%= @listing.location  %></p>
+
+    <br>
+
+    <h5>Other listings that may interest you</h5>
+    <div class="other-listings-container">
+      <% @listings.each do |listing| %>
+      <%= render listing %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
