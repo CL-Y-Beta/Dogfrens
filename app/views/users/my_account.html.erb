@@ -1,0 +1,19 @@
+<h1>Account Page</h1>
+
+<%= simple_form_for(current_user) do |f| %>
+  <% link_to user_path(current_user) do %>
+    <%= f.button :submit, "View Profile", class: "btn btn-primary" %>
+    <% end %>
+<% end %>
+
+<%= simple_form_for(current_user) do |f| %>
+  <% link_to edit_user_path(current_user) do %>
+    <%= f.button :submit, "Edit Your Profile", class: "btn btn-primary" %>
+    <% end %>
+<% end %>
+
+<%= simple_form_for(current_user, html: { method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } }) do |f| %>
+  <%= f.button :submit, "Delete Account", class: "btn btn-danger" %>
+<% end %>
+
+<%= link_to 'Back to Home Page', root_path, class: "btn btn-secondary" %>

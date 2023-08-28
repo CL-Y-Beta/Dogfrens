@@ -1,11 +1,12 @@
 <div class="container">
 <h1>Browse All Dog-Deals (<%= @listings.count%>)</h1>
 
-  <div id="listings">
+  <div id="listings" >
 
   <% @listings.each do |listing| %>
 
-    <%= render listing %>
+      <%= render listing %>
+
   <% end %>
 </div>
 

@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def my_account
+    @user = current_user
+  end
+
   def create
     @user = User.new(user_params)
     @user.save

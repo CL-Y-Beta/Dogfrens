@@ -1,23 +1,23 @@
 <h1>Wishlist</h1>
 
-<% listings = @bookmarks.map do |bookmark|%>
-    <% bookmark.listing %>
-<% end %>
 
-<% listings.each do |listing| %>
+
+<% @bookmarks.each do |bookmark| %>
+  <% listing = bookmark.listing %>
   <div class="listing-card" style="background-image: url('<%= asset_path('Kallang_River_at_Bishan_Park.jpg') %>');">
     <div class="listing-bottom">
       <div class="listing-details">
         <p id="listing-title"><%= listing.title %></p>
         <div class="listing-prices">
-          <b><h5>$<%= listing.price%></h5></b>
-          <p><%=%>40% off</p>
+          <% final_price = listing.price - (listing.price * listing.discount / 100.0) %>
+            <b><h5>$<%= final_price.round %></h5></b>
+            <p style="white-space: nowrap;"><strong><%= listing.discount %>% OFF!</strong></p>
         </div>
       </div>
 
       <div class="listing-details-bottom">
       <% ## need to properly link to back-end the delete for the bookmark %>
-      <%= link_to image_tag("delete_symbol.svg", width: "14px"), @bookmark, method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to image_tag("delete_symbol.svg", width: "14px"), bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       <%= link_to "View Deal", listing_path(listing), class: "view-deal" %>
       </div>
     </div>
