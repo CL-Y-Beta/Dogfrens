@@ -15,8 +15,10 @@
         </div>
       </div>
 
-      <div class="listing-button">
-      <%= link_to "View Deal", listing_path(listing) %>
+      <div class="listing-details-bottom">
+      <% ## need to properly link to back-end the delete for the bookmark %>
+      <%= link_to image_tag("delete_symbol.svg", width: "14px"), @bookmark, method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "View Deal", listing_path(listing), class: "view-deal" %>
       </div>
     </div>
   </div>

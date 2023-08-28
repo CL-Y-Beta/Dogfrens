@@ -9,14 +9,26 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[id])
   end
 
+  # def create
+  #   @bookmark = Bookmark.new(bookmark_params)
+  #   @bookmark.listing_id = params[:listing_id]
+  #   @bookmark.user_id = params[:user_id]
+  #   if @bookmark.save
+  #     redirect_to listing_path(@bookmark.listing), notice: 'Bookmark successfully saved'
+  #   else
+  #     redirect_to listing_path(params[:id]), alert: 'Failed to create bookmark.'
+  #   end
+  # end
+
   def create
+    @listing = Listing.find(params[:listing_id])
+    bookmark_params = { listing_id: @listing.id,
+                        user_id: current_user.id }
     @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.listing_id = params[:listing_id]
-    @bookmark.user_id = params[:user_id]
     if @bookmark.save
       redirect_to listing_path(@bookmark.listing), notice: 'Bookmark successfully saved'
     else
-      redirect_to listing_path(params[:id]), alert: 'Failed to create bookmark.'
+      render :new, status: :unprocessable_entity
     end
   end
 

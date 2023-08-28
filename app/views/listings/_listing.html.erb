@@ -9,8 +9,9 @@
         </div>
       </div>
 
-      <div class="listing-button">
-      <%= link_to "View Deal", listing_path(listing) %>
+      <div class="listing-details-bottom">
+      <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(listing) %>
+      <%= link_to "View Deal", listing_path(listing), class: "view-deal" %>
       </div>
     </div>
   </div>

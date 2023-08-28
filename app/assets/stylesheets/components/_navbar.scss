@@ -12,15 +12,19 @@
 }
 
 .navbar {
+  background-color: white;
+  position: sticky;
+  top: 0px;
   display: flex;
   align-items: center;
-  padding: 1em 2em 1em 2em;
+  padding: 1em 2em 1em 3em;
   border-top: 0.3em solid #8EA604;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .navbar-right {

@@ -22,12 +22,12 @@
   border-top-right-radius: 0;
 }
 
-.listing-button {
+.listing-details-bottom {
   display:flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
-.listing-button a {
+.listing-details-bottom a.view-deal {
   background-color: $green;
   padding: 4px 7px 4px 7px;
   text-decoration: none;
