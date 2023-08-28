@@ -10,3 +10,53 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar {
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  padding: 1em 2em 1em 3em;
+  border-top: 0.3em solid #8EA604;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #273A42;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  color: #1e2e34;
+}
+
+.navbar a.dog-deal{
+  text-decoration: none;
+  color: #5f737c;
+  font-size: 0.8em;
+}
+
+.navbar li {
+  padding: 0px;
+  list-style: none;
+  color: #273A42;
+}
+
+.navbar li:hover {
+  padding: 0px;
+  list-style: none;
+  color: #1e2e34;
+}

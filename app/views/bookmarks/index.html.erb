@@ -1,4 +1,10 @@
+<h1>Wishlist</h1>
 
+<% listings = @bookmarks.map do |bookmark|%>
+    <% bookmark.listing %>
+<% end %>
+
+<% listings.each do |listing| %>
   <div class="listing-card" style="background-image: url('<%= asset_path('Kallang_River_at_Bishan_Park.jpg') %>');">
     <div class="listing-bottom">
       <div class="listing-details">
@@ -10,8 +16,11 @@
       </div>
 
       <div class="listing-details-bottom">
-      <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(listing) %>
+      <% ## need to properly link to back-end the delete for the bookmark %>
+      <%= link_to image_tag("delete_symbol.svg", width: "14px"), @bookmark, method: :delete, data: { confirm: "Are you sure?" } %>
       <%= link_to "View Deal", listing_path(listing), class: "view-deal" %>
       </div>
     </div>
   </div>
+
+<% end %>

@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
 
   def home
+    @listings = Listing.all.limit(4)
   end
 
   def index
@@ -10,6 +11,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @bookmark = Bookmark.new
   end
 
   def my_listings

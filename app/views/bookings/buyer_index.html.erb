@@ -1,11 +1,21 @@
 <h1> This is the buyer's booking page </h1>
 
- <%= link_to "As seller", seller_bookings_path %>
- <p> As buyer </p>
+  <div class="booking-index">
+    <%= link_to "As seller", seller_bookings_path %>
+    <p> As buyer </p>
+  </div>
+
+
+<h3>YOUR REQUESTS </h3>
 <% @bookings.each do |booking| %>
 
-  <div class="booking-class">
-    <p>Listing Name: <%= booking.listing.title %></p><br>
-    <p>Listing Description: <%= booking.listing.description %></p>
-  </div>
+  <% if booking.confirmed == false %>
+    <div class="booking-card">
+      <p class="booking-title"><%= booking.listing.title %></p><br>
+      <p><%= booking.listing.user.email%></p>
+    </div>
+  <% end %>
+
 <% end %>
+
+<h3>PREVIOUSLY CONFIRMED REQUESTS </h3>
