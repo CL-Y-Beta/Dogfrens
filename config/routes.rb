@@ -18,9 +18,9 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new show create edit update destroy]
 
-  ## From master branch, I'm just commenting out the code because I'm not sure if /my-account is needed. 
+  ## From master branch, I'm just commenting out the code because I'm not sure if /my-account is needed.
   # resources :users, only: %i[show create edit update destroy]
-  # get "/my-account", to: "users#my_account"
+  get "/my-account", to: "users#my_account"
 
 
   resources :bookmarks, only: %i[new create index destroy]
