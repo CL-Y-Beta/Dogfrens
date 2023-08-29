@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+
+.listing-container {
+  width: 900;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+
+.my-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 30px 20px 30px;
+}
+
+#home-page-banner {
+  width: 940px;
+  height: 350px;
+  background-color: rgb(252, 190, 19);
+  border-radius: 30px;
+  border: 3px solid black;
+  text-align: right;
+  padding: 100px 50px 50px 30px;
+  justify-content: right;
+  margin-bottom: 30px;
+}

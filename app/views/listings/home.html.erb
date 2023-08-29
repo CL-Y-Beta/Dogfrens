@@ -1,13 +1,20 @@
-<h1>Doggie deals for your favorite fren</h1>
+<div class="my-container">
+
+<div id="home-page-banner">
+  <h1>Doggie deals for your </h1>
+  <h1>favorite fren</h1>
+</div>
 
 
 <h2>Have a look at our doggie deals!</h2>
 
 
-<div class="container">
-  <% @listings.each do |listing| %>
 
-    <%= render listing %>
+  <div class="listing-container">
+    <% @listings.each do |listing| %>
 
-  <% end %>
+      <%= render listing %>
+
+    <% end %>
+  </div>
 </div>

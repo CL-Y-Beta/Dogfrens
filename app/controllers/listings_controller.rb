@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
 
   def home
-    @listings = Listing.all.limit(4)
+    @listings = Listing.all.limit(12)
   end
 
   def index
