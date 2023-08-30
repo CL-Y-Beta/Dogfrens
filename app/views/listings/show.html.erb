@@ -10,16 +10,12 @@
     <% if current_user %>
     <%= button_to "Book this", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
     <% end %>
-    <%#= form_tag bookings_path, method: :post do %>
-      <%#= hidden_field_tag :listing_id, @listing.id %>
-      <%#= hidden_field_tag :user_id, current_user.id %>
-      <%#= submit_tag 'Book this', class: "me-1" %>
-    <%# end %>
+
     <% if current_user %>
     <%= button_to "Bookmark this", url_for(controller: :bookmarks, action: :create, listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
     <% end %>
     <% if current_user && @listing.user_id == current_user.id %>
-      <%= link_to "Destroy this listing", @listing, method: :delete, data: { confirm: "Are you sure?" } , class: "btn btn-primary me-1"%>
+      <%= link_to "Destroy this listing", @listing, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } , class: "btn btn-primary me-1"%>
     <% end %>
   </div>
 </div>
