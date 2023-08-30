@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def change_password
+    @user = current_user
+  end
+
   def create
     @user = User.new(user_params)
     @user.save
@@ -25,9 +29,19 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(current_user), notice: 'Profile updated successfully'
     else
-      render :edit
+      render :edit, notice: 'Your profile was not updated'
     end
   end
+
+  def update_account
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to my_account_path, notice: 'Account updated successfully'
+    else
+      render :edit, notice: 'Your account was not updated'
+    end
+  end
+
 
   def destroy
     @user = current_user
@@ -39,6 +53,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :company_name, :email, :mobile, :address, :description, :password)
+    params.require(:user).permit(:username, :dog_description, :email, :mobile, :address, :description, :password)
   end
 end

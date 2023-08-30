@@ -19,10 +19,14 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new show create edit update destroy]
 
+  patch "/my-account", to: "users#update_account", as: :update_account
   ## From master branch, I'm just commenting out the code because I'm not sure if /my-account is needed.
   # resources :users, only: %i[show create edit update destroy]
-  get "/my-account", to: "users#my_account"
+  get "/my-account", to: "users#my_account", as: :my_account
 
+  get "/my-account/password", to: "users#change_password", as: :change_password
+
+  patch "/my-account/password", to: "users#change_password", as: :change_password_patch
 
   resources :bookmarks, only: %i[new create index destroy]
   ## bookmarks also need a /my_bookmarks
