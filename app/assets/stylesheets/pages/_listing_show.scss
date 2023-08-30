@@ -1,0 +1,85 @@
+#listing-image {
+  width: 690px;
+  height: 400px;
+  background-size: cover;
+  margin: 20px;
+}
+
+
+#listing-image-border {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  border: 3px solid black;
+  width: 750px;
+}
+
+.listing-show-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 30px 10px 0px 20px;
+}
+
+
+
+.listing-image-and-key-info {
+  display: flex;
+  padding: 20px;
+  gap: 25px;
+}
+
+.listing-key-information {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+#display-discount h4{
+  padding: 4px 8px 5px 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+}
+
+
+.listing-buttons {
+  display: flex;
+  padding-top: 10px;
+}
+
+.listing-seller-info {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.listing-seller-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-seller-name p{
+  margin: 0px;
+  padding: 0px;
+}
+
+.listing-seller-name p#created-by{
+  font-size: 0.8rem;
+}
+
+.listing-show-bottom {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.other-listings-container {
+  padding-top: 20px;
+  display: flex;
+  width: 900px;
+  gap: 20px;
+  justify-content: left;
+  flex-wrap: wrap;
+}
