@@ -20,14 +20,12 @@
 
       <div class="listing-key-information-top">
         <p><b><%= @listing.title %></b><p>
-        <% if @listing.discount != 0 %>
           <h5><s>S$<%= @listing.price %></s></h5>
-          <% discounted_price = @listing.price * @listing.discount/100 %>
-          <h1>S$<%= discounted_price %></h1>
+          <% discounted_price = @listing.price - (@listing.price * @listing.discount / 100.0) %>
+          <h1>S$<%= discounted_price.round(2) %></h1>
           <div id="display-discount">
             <h4><%= @listing.discount %>% off</h4>
           </div>
-        <% end %>
       </div>
 
       <div class="listing-key-information-bottom">
@@ -66,8 +64,14 @@
 
     <h3>Location</h3>
     <p><%= @listing.location  %></p>
-
+    <div data-controller="map"
+      data-map-marker-value='<%= @marker.to_json %>'
+      data-map-api-key-value="<%=ENV['MAPBOX_API_KEY']%>"
+      id='map'
+      style='width: 620px; height: 300px; position: relative;'>
+    </div>
     <br>
+    <%=@marker.to_json %>
 
     <h5>Other listings that may interest you</h5>
     <div class="other-listings-container">
