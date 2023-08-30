@@ -1,7 +1,7 @@
-<h1> This is the buyer's booking page </h1>
+
 <div class="d-flex justify-content-center">
   <p><%= link_to "As seller", seller_bookings_path %></p>
-  <p style="margin-left: 20px;">As buyer</p>
+  <p style="margin-left: 20px; font-weight: bold;">As buyer</p>
 </div>
 
 <p>YOUR REQUESTS (<%= @bookings.where(confirmed: false).count %>)</p>
@@ -11,7 +11,7 @@
     <div class="card w-100 mb-4 bg-white">
       <div class="card-body">
         <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-        <p class="card-text">Requested to <%= booking.listing.user.email %></p>
+        <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user) %></p>
       </div>
       <div class="card-body">
         <p>Yet to be confirmed</p>
@@ -29,10 +29,10 @@
       <div class="card w-100 mb-4 bg-white">
         <div class="card-body">
           <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-          <p class="card-text">Requested to <%= booking.listing.user.email %></p>
+          <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user) %></p>
         </div>
         <div class="card-body">
-          <p>Redeemed</p>
+          <p>Confirmed</p>
           <%= link_to "View Details >", booking_path(booking) %>
         </div>
       </div>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   ## listings need to have a /my-listings to fetch the current-user's own postings/listings
   resources :bookings, only: %i[show create]
   get "/my-bookings-as-seller", to: "bookings#seller_index", as: :seller_bookings
+  patch "/my-bookings-as-seller/:id", to: "bookings#accept", as: :accept_booking
   get "/my-bookings-as-buyer", to: "bookings#buyer_index", as: :buyer_bookings
   ## bookings index have to be /my-bookings/seller & my-bookings/buyer
 

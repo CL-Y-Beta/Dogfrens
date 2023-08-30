@@ -65,11 +65,13 @@
     <h3>Location</h3>
     <p><%= @listing.location  %></p>
     <div data-controller="map"
+      data-map-marker-value='<%= @marker.to_json %>'
       data-map-api-key-value="<%=ENV['MAPBOX_API_KEY']%>"
       id='map'
       style='width: 620px; height: 300px; position: relative;'>
     </div>
     <br>
+    <%=@marker.to_json %>
 
     <h5>Other listings that may interest you</h5>
     <div class="other-listings-container">
