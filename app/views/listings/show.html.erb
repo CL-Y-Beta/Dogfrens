@@ -44,7 +44,11 @@
           <%= button_to "Book Now", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
           <% end %>
           <% if current_user %>
-          <%= button_to "Wishlist It", url_for(controller: :bookmarks, action: :create, listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+            <% if current_user.bookmarks.exists?(listing_id: @listing.id) %>
+              <%= button_to "Remove Wishlist", bookmark_path(current_user.bookmarks.find_by(listing_id: @listing.id)), method: :delete, class: "btn btn-primary me-1" %>
+            <% else %>
+              <%= button_to "Wishlist It", bookmarks_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+            <% end %>
           <% end %>
         </div>
 
