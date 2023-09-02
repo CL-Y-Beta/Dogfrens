@@ -13,7 +13,7 @@
 
   <div class="listing-image-and-key-info">
     <div id="listing-image-border">
-      <div id="listing-image" style="background-image: url('<%= listing.photo.attached? ? cl_image_path(listing.photo.key,:crop=>"fill") : asset_path('Kallang_River_at_Bishan_Park.jpg') %>');"></div>
+      <div id="listing-image" style="background-image: url('<%= @listing.photo.attached? ? cl_image_path(@listing.photo.key,:crop=>"fill") : asset_path('Kallang_River_at_Bishan_Park.jpg') %>');"></div>
     </div>
 
     <div class="listing-key-information">
@@ -35,7 +35,7 @@
 
           <div class="listing-seller-name">
             <p id="created-by">Listing created by<p>
-            <p><b>Username_99</b></p>
+            <p><b><%= @listing.user.email %></b></p>
           </div>
         </div>
 
@@ -44,7 +44,11 @@
           <%= button_to "Book Now", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
           <% end %>
           <% if current_user %>
-          <%= button_to "Wishlist It", url_for(controller: :bookmarks, action: :create, listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+            <% if current_user.bookmarks.exists?(listing_id: @listing.id) %>
+              <%= button_to "Remove Wishlist", bookmark_path(current_user.bookmarks.find_by(listing_id: @listing.id)), method: :delete, class: "btn btn-primary me-1" %>
+            <% else %>
+              <%= button_to "Wishlist It", bookmarks_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+            <% end %>
           <% end %>
         </div>
 
@@ -70,8 +74,8 @@
       id='map'
       style='width: 620px; height: 300px; position: relative;'>
     </div>
+
     <br>
-    <%=@marker.to_json %>
 
     <h5>Other listings that may interest you</h5>
     <div class="other-listings-container">
