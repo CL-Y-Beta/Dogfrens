@@ -6,8 +6,11 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all
-
+    if params[:query].present?
+      @listings = Listing.search_by_various_fields(params[:query])
+    else
+      @listings = Listing.all
+    end
   end
 
   def show

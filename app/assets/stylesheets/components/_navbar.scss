@@ -61,3 +61,21 @@
   list-style: none;
   color: #1e2e34;
 }
+
+.custom-input {
+  background-color: transparent;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.custom-button {
+  background-color: #F5BB00;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #ffe646;
+}
