@@ -13,7 +13,7 @@
 
   <div class="listing-image-and-key-info">
     <div id="listing-image-border">
-      <div id="listing-image" style="background-image: url('<%= @listing.photo.attached? ? cl_image_path(listing.photo.key,:crop=>"fill") : asset_path('Kallang_River_at_Bishan_Park.jpg') %>');"></div>
+      <div id="listing-image" style="background-image: url('<%= @listing.photo.attached? ? cl_image_path(@listing.photo.key,:crop=>"fill") : asset_path('Kallang_River_at_Bishan_Park.jpg') %>');"></div>
     </div>
 
     <div class="listing-key-information">
