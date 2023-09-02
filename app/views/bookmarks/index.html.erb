@@ -6,7 +6,7 @@
 
     <% @bookmarks.each do |bookmark| %>
       <% listing = bookmark.listing %>
-      <div class="listing-card" style="background-image: url('<%= asset_path('Kallang_River_at_Bishan_Park.jpg') %>');">
+      <div class="listing-card" style="background-image: url('<%= listing.photo.attached? ? cl_image_path(listing.photo.key, height: 300,width:300,:crop=>"fill") : asset_path('Kallang_River_at_Bishan_Park.jpg') %>');">
         <div class="listing-bottom">
           <div class="listing-details">
             <p id="listing-title"><%= listing.title %></p>
