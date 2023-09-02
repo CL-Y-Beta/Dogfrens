@@ -89,16 +89,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    if params[:current_password]
+    if params["user"][:current_password]
+      set_flash_message(:notice, :updated_not_active, scope: 'devise.passwords', now:true)
       change_password_path(resource)
-    elsif params[:email]
+    elsif params["user"][:email]
+      set_flash_message(:notice, :email_updated, {})
       edit_user_registration_path(resource)
     else
+      set_flash_message(:notice, :profile_updated, {})
       edit_profile_path(resource)
     end
   end
 
-  # def after_update_path_for(resource)
+  # def after_update_path_  for(resource)
   #   edit_user_registration_path(resource)
   # end
 
