@@ -1,12 +1,27 @@
-<h1>Edit Your Profile</h1>
+<%= link_to "< back", :back, class: "back-button" %>
 
-<%= simple_form_for(current_user) do |f| %>
-  <%= f.input :email %>
-  <%= f.submit "Update Profile", class: "btn btn-primary" %>
-<% end %>
-
-<%= simple_form_for(current_user) do |f| %>
-  <% link_to user_path(current_user) do %>
-    <%= f.submit "Back to Profile Page", class: "btn btn-secondary" %>
-    <% end %>
-<% end %>
+<div class="profile-edit-container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 text-center header-container">
+      <h1 class="custom-header">Edit Your Profile</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 text-center form-container">
+      <div class="profile-picture-container">
+        <label for="profile-picture-upload" class="profile-picture-link">
+          <img src="http://localhost:3000/assets/dog_logo-4311d083c58a1042d94403652d25684f5286868072436eb0c5512e734ca6516e.png" alt="Profile Picture" id="profile-pic">
+          <span class="change-picture-text">Change Picture</span>
+        </label>
+          <input type="file" id="profile-picture-upload" accept="image/*" style="display: none;">
+      </div>
+        <%= simple_form_for(current_user) do |f| %>
+          <%= f.input :description, label: 'Describe Yourself!', as: :text %>
+          <div class="input-spacing"></div>
+          <%= f.input :description, label: 'Let Us Know About Your Pup!', as: :text %>
+          <div class="form-spacing"></div>
+          <%= f.submit "Update Profile", class: "submit-button" %>
+        <% end %>
+    </div>
+  </div>
+</div>
