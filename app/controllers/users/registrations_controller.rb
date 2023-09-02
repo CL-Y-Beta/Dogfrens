@@ -38,7 +38,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  # def update_resource(resource, params)
+  #   if params[:current_password]
+  #     if current_user.valid_password?(params[:current_password])
+  #       resource.update_with_password(params)
+  #     else
+  #       set_flash_message(:alert, 'invalid', scope: 'devise.failure', authentication_keys: 'New password')
+  #       # redirect_to change_password_path and return
+  #     end
+  #   else
+  #     set_flash_message(:alert, 'unauthenticated', scope: 'devise.failure')
+  #   end
+  # end
+
+  def update_resource(resource, params)
+    if params[:current_password]
+      if current_user.valid_password?(params[:current_password])
+        resource.update_with_password(params)
+      else
+        set_flash_message(:alert, 'invalid', scope: 'devise.failure', authentication_keys: "username")
+      end
+    else
+      resource.update_without_password(params)
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -55,6 +80,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
     new_user_path
   end
+
+  def after_update_path_for(resource)
+    if params[:password_form]
+      change_password_path(resource)
+    else
+      edit_user_registration_path(resource)
+    end
+  end
+
+  # def after_update_path_for(resource)
+  #   edit_user_registration_path(resource)
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
