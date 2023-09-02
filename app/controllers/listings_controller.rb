@@ -65,6 +65,6 @@ private
 
   # Only allow a list of trusted parameters through.
   def listing_params
-    params.require(:listing).permit(:title, :description, :image_url, :location, :price, :quantity_left, :discount)
+    params.require(:listing).permit(:title, :description, :image_url, :location, :price, :quantity_left, :discount, :photo)
   end
 end
