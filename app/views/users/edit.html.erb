@@ -10,12 +10,13 @@
     <div class="col-12 col-sm-6 text-center form-container">
       <div class="profile-picture-container">
         <label for="profile-picture-upload" class="profile-picture-link">
-          <img src="http://localhost:3000/assets/dog_logo-4311d083c58a1042d94403652d25684f5286868072436eb0c5512e734ca6516e.png" alt="Profile Picture" id="profile-pic">
-          <span class="change-picture-text">Change Picture</span>
+          <div class="profile-picture">
+            <%= cl_image_tag(current_user.profile_photo.key,:gravity=>"face", :height=>200, :width=>200, :crop=>"fill",:radius=>"max") %>
+          </div>
         </label>
-          <input type="file" id="profile-picture-upload" accept="image/*" style="display: none;">
       </div>
         <%= simple_form_for(current_user) do |f| %>
+          <%= f.input :profile_photo, as: :file, label: 'Upload a profile picture'%>
           <%= f.input :description, label: 'Describe Yourself!', as: :text %>
           <div class="input-spacing"></div>
           <%= f.input :description, label: 'Let Us Know About Your Pup!', as: :text %>
