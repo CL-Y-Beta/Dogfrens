@@ -1,0 +1,74 @@
+.header-container {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.form-container {
+  font-weight: bold;
+}
+
+.custom-header {
+  font-size: 20px;
+}
+
+.input-spacing {
+  margin-bottom: 20px;
+}
+
+.form-spacing {
+  margin-bottom: 40px;
+}
+
+.profile-picture-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-picture-link {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+#profile-pic {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: auto;
+  width: 120px;
+  border-radius: 100%;
+  text-align: center;
+}
+
+.change-picture-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.5s;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+
+.profile-picture-container:hover .change-picture-text {
+  display: block;
+}
+
+.submit-button {
+  padding: 5px;
+  width: 100%;
+  background-color: #F5BB00;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #ffe646;
+}

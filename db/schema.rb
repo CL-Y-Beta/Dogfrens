@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_124058) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_055706) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_124058) do
     t.integer "discount", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "category"
+    t.text "redeem_description"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

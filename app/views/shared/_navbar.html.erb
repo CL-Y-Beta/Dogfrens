@@ -6,7 +6,17 @@
     <% end %>
     <%= link_to "Home", root_path %>
     <%= link_to "All Deals", listings_path %>
-  </div>
+      <div>
+        <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control custom-input",
+          placeholder: "Search for a listing"
+        %>
+        <%= submit_tag "Search", name: "", class: "custom-button" %>
+        <% end %>
+      </div>
+    </div>
 
   <% if user_signed_in? %>
     <div class="navbar-right">

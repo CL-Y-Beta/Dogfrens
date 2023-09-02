@@ -36,7 +36,7 @@ class BookmarksController < ApplicationController
 
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to bookmarks_path, notice: 'Bookmark was successfully destroyed.'
+    redirect_to bookmarks_path, notice: 'Bookmark was successfully removed.'
   end
 
   private
