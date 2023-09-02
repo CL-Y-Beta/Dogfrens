@@ -8,6 +8,7 @@
 require "faker"
 
 puts "Cleaning listing database..."
+Bookmark.destroy_all
 Listing.destroy_all
 
 puts "Cleaning user database..."
@@ -16,20 +17,27 @@ puts "all clean"
 
 puts 'Creating 5 fake users...'
 5.times do |i|
+  Faker::Config.locale = 'en-SG'
   User.create!(
     email: "user#{i + 1}@email.com",
-    password: "123456"
+    password: "123456",
+    mobile: "91234567",
+    address: Faker::Address.street_address,
+    description: Faker::Lorem.sentence
   )
 end
 
-puts 'Creating 10 fake listings...'
-10.times do
+puts 'Creating 15 fake listings...'
+15.times do
+  Faker::Config.locale = 'en-SG'
   listing = Listing.new(
     title: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph(sentence_count: 2),
+    description: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
     price: Faker::Number.number(digits: 3),
     discount: Faker::Number.between(from: 1, to: 8) * 10,
     location: Faker::Address.street_address,
+    category:["food", "supplies", "grooming", "accessories"].sample,
+    redeem_description: Faker::Lorem.paragraph_by_chars(number: 2000, supplemental: false),
     user_id: User.all.sample.id,
     quantity_left: Faker::Number.between(from: 1, to: 20)
   )
