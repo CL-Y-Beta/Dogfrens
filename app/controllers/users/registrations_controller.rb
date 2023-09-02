@@ -3,7 +3,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :authenticate_scope!, only: [:edit_profile, :edit, :update, :destroy]
 
+  def edit_profile
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -40,6 +43,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def user_params
+    params.require(:user).permit(:description, :dog_description) # Replace with your user attributes
+  end
   # def update_resource(resource, params)
   #   if params[:current_password]
   #     if current_user.valid_password?(params[:current_password])
@@ -70,6 +76,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
@@ -82,10 +89,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    if params[:password_form]
+    if params[:current_password]
       change_password_path(resource)
-    else
+    elsif params[:email]
       edit_user_registration_path(resource)
+    else
+      edit_profile_path(resource)
     end
   end
 

@@ -4,12 +4,6 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :username, as: :hidden %>
-    <%= f.input :email, as: :hidden %>
-    <%= f.input :mobile, as: :hidden %>
-    <%= f.input :address, as: :hidden %>
-    <%= hidden_field_tag :password_form, "true" %>
-
   <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
