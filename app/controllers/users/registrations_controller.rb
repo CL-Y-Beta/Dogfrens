@@ -63,6 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params[:current_password]
       if current_user.valid_password?(params[:current_password])
         resource.update_with_password(params)
+        set_flash_message(:notice, :updated_not_active, scope: 'devise.passwords', now: true)
       else
         set_flash_message(:alert, 'invalid', scope: 'devise.failure', authentication_keys: "username")
       end
@@ -90,7 +91,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     if params["user"][:current_password]
-      set_flash_message(:notice, :updated_not_active, scope: 'devise.passwords', now:true)
       change_password_path(resource)
     elsif params["user"][:email]
       set_flash_message(:notice, :email_updated, {})
