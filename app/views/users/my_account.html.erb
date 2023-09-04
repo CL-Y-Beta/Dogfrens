@@ -3,11 +3,11 @@
 
 
 <%= link_to "View Profile", user_path(current_user) %>
-<%= link_to "Edit Your Profile", edit_user_path(current_user) %>
+<%= link_to "Edit Your Profile", edit_user_registration_path(current_user) %>
 
 <h3> My Account </h3>
 <p><b> Contact Information </b></p>
-<%= link_to "Change_Password", change_password_path %>
+<%= link_to "Change Password", change_password_path %>
 
 <%= simple_form_for(current_user, html: { method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } }) do |f| %>
   <%= f.button :submit, "Delete Account", class: "btn btn-danger" %>

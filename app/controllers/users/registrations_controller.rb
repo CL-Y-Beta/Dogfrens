@@ -3,7 +3,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :authenticate_scope!, only: [:edit_profile, :edit, :update, :destroy]
 
+  def edit_profile
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -38,12 +41,42 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def user_params
+    params.require(:user).permit(:description, :dog_description) # Replace with your user attributes
+  end
+  # def update_resource(resource, params)
+  #   if params[:current_password]
+  #     if current_user.valid_password?(params[:current_password])
+  #       resource.update_with_password(params)
+  #     else
+  #       set_flash_message(:alert, 'invalid', scope: 'devise.failure', authentication_keys: 'New password')
+  #       # redirect_to change_password_path and return
+  #     end
+  #   else
+  #     set_flash_message(:alert, 'unauthenticated', scope: 'devise.failure')
+  #   end
+  # end
+
+  def update_resource(resource, params)
+    if params[:current_password]
+      if current_user.valid_password?(params[:current_password])
+        resource.update_with_password(params)
+        set_flash_message(:notice, :updated_not_active, scope: 'devise.passwords', now: true)
+      else
+        set_flash_message(:alert, 'invalid', scope: 'devise.failure', authentication_keys: "username")
+      end
+    else
+      resource.update_without_password(params)
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -55,6 +88,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
     new_user_path
   end
+
+  def after_update_path_for(resource)
+    if params["user"][:current_password]
+      change_password_path(resource)
+    elsif params["user"][:email]
+      set_flash_message(:notice, :email_updated, {})
+      edit_user_registration_path(resource)
+    else
+      set_flash_message(:notice, :profile_updated, {})
+      edit_profile_path(resource)
+    end
+  end
+
+  # def after_update_path_  for(resource)
+  #   edit_user_registration_path(resource)
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
