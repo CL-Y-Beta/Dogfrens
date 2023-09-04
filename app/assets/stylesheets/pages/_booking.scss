@@ -1,0 +1,35 @@
+#booking-card {
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  border: 0.2em solid #000000;
+}
+
+.card-body-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 30px;
+  align-items: flex-end;
+}
+
+#booking-btn {
+  border: #F5BB00;
+  border-radius: 5px;
+  background-color: #F5BB00;
+  color: #000000;
+}
+
+.card-body-left {
+  flex: 3;
+  padding: 20px 30px;
+}
+
+.link-text-color {
+  color: #F5BB00;
+  text-decoration: none;
+}
+
+.view-details {
+  text-decoration: none;
+}

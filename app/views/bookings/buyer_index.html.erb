@@ -8,14 +8,14 @@
 <div class="container">
  <% @bookings.each do |booking| %>
   <% if !booking.confirmed %>
-    <div class="card w-100 mb-4 bg-white">
-      <div class="card-body">
+    <div class="card w-100 mb-4 bg-white" id="booking-card">
+      <div class="card-body-left">
         <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-        <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user) %></p>
+        <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user), class: "link-text-color" %></p>
       </div>
-      <div class="card-body">
-        <p>Yet to be confirmed</p>
-        <%= link_to "View Details >", booking_path(booking)%>
+      <div class="card-body-right">
+        <p class="mb-4">Yet to be confirmed</p>
+        <%= link_to "View Details ->", booking_path(booking), class: "view-details" %>
       </div>
     </div>
   <% end %>
@@ -26,14 +26,14 @@
 <div class="container">
   <% @bookings.each do |booking| %>
     <% if booking.confirmed %>
-      <div class="card w-100 mb-4 bg-white">
-        <div class="card-body">
+      <div class="card w-100 mb-4 bg-white" id="booking-card">
+        <div class="card-body-left">
           <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-          <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user) %></p>
+          <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user), class: "link-text-color" %></p>
         </div>
-        <div class="card-body">
-          <p>Confirmed</p>
-          <%= link_to "View Details >", booking_path(booking) %>
+        <div class="card-body-right">
+          <p class="mb-4">Redeemed</p>
+          <%= link_to "View Details ->", booking_path(booking), class: "view-details" %>
         </div>
       </div>
     <% end %>
