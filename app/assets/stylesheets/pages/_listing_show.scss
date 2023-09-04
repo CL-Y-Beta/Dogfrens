@@ -18,9 +18,8 @@
   display: flex;
   gap: 15px;
   align-items: center;
-  padding: 30px 10px 0px 20px;
+  padding: 30px 10px 0px 40px;
 }
-
 
 
 .listing-image-and-key-info {
@@ -34,6 +33,9 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  top: 90px;
+  position: sticky;
+  align-self: flex-start;
 }
 
 #display-discount h4{
@@ -73,6 +75,7 @@
 .listing-show-bottom {
   padding-left: 30px;
   padding-top: 20px;
+  width: 500px;
 }
 
 .other-listings-container {
@@ -82,4 +85,14 @@
   gap: 20px;
   justify-content: left;
   flex-wrap: wrap;
+}
+
+
+
+// second try CSS
+
+.listings-show-page-container {
+  display:flex;
+  gap: 30px;
+  padding: 10px 30px 0px 50px;
 }

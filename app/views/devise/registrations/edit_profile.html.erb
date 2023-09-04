@@ -11,17 +11,21 @@
       <div class="profile-picture-container">
         <label for="profile-picture-upload" class="profile-picture-link">
           <div class="profile-picture">
-            <%= cl_image_tag(current_user.profile_photo.key,:gravity=>"face", :height=>200, :width=>200, :crop=>"fill",:radius=>"max") %>
+            <% if current_user.profile_photo.attached? %>
+              <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+            <% else %>
+              <%= image_tag "dog_logo.png", { width: "30", height: "30", class: "profile-pic", style: "border-radius: 50%;" } %>
+            <% end %>
           </div>
         </label>
       </div>
-        <%= simple_form_for(current_user) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.input :profile_photo, as: :file, label: 'Upload a profile picture'%>
           <%= f.input :description, label: 'Describe Yourself!', as: :text %>
           <div class="input-spacing"></div>
-          <%= f.input :description, label: 'Let Us Know About Your Pup!', as: :text %>
+          <%= f.input :dog_description, label: 'Let Us Know About Your Pup!', as: :text %>
           <div class="form-spacing"></div>
-          <%= f.submit "Update Profile", class: "submit-button" %>
+          <%= f.submit "Update Your Profile", class: "submit-button", method: :patch %>
         <% end %>
     </div>
   </div>
