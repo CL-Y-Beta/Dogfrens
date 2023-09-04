@@ -1,0 +1,57 @@
+.booking-details h1 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.view-btn {
+  border-radius: 5px;
+  background-color: #F5BB00;
+  border: #F5BB00;
+  color: #000000;
+  padding: 6px 98px;
+}
+
+.booking-info {
+  display: flex;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.booking-info-left {
+  flex: 3;
+  color: #000000;
+}
+
+.booking-info-right {
+  flex: 1;
+  color: #000000;
+}
+
+.booking-confirmation {
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+.creator-email {
+  margin: 30px 0;
+  color: #6F6F6F;
+}
+
+.contact {
+  display: flex;
+  gap: 50%;
+}
+
+.view-profile-btn {
+  border-radius: 5px;
+  background-color: #F5BB00;
+  border: #F5BB00;
+  color: #000000;
+  padding: 6px 98px;
+  font-size: 24px;
+}
+
+.details {
+  list-style: none;
+  padding: 0;
+}

@@ -5,18 +5,18 @@
 
 </div>
 
-<p>INCOMING REQUESTS (<%= @bookings.count %>)</p>
+<p>INCOMING REQUESTS (<%= @bookings.where(confirmed: false).count %>)</p>
   <div class="container">
     <% @bookings.each do |booking| %>
       <% if booking.confirmed == false %>
-        <div class="card w-100 mb-4 bg-white">
-          <div class="card-body">
+        <div class="card w-100 mb-4 bg-white" id="booking-card">
+          <div class="card-body-left">
             <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-            <p class="card-text">Requested by <%= link_to booking.dog_owner.email, user_path(booking.dog_owner) %></p>
+            <p class="card-text">Requested by <%= link_to booking.dog_owner.email, user_path(booking.dog_owner), class: "link-text-color" %></p>
           </div>
-          <div class="card-body d-flex justify-content-between">
-            <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-primary" %>
-            <%= link_to "View Details >", booking_path(booking)%>
+          <div class="card-body-right">
+            <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-primary mb-4", id: "booking-btn" %>
+            <%= link_to "View Details ->", booking_path(booking), class: "view-details" %>
           </div>
         </div>
       <% end %>
@@ -28,14 +28,14 @@
 <div class="container">
  <% @bookings.each do |booking| %>
   <% if booking.confirmed %>
-    <div class="card w-100 mb-4 bg-white">
-        <div class="card-body">
+    <div class="card w-100 mb-4 bg-white" id="booking-card">
+        <div class="card-body-left">
           <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-          <p class="card-text">Requested by <%= link_to booking.dog_owner.email, user_path(booking.dog_owner) %></p>
+          <p class="card-text">Requested by <%= link_to booking.dog_owner.email, user_path(booking.dog_owner), class: "link-text-color" %></p>
         </div>
-        <div class="card-body d-flex justify-content-between">
-          <a href="#" class="btn btn-primary">Mark as Redeemed</a>
-          <%= link_to "View Details >", booking_path(booking)%>
+        <div class="card-body-right">
+          <a href="#" class="btn btn-primary mb-4" id="booking-btn">Mark as Redeemed</a>
+          <%= link_to "View Details ->", booking_path(booking), class: "view-details" %>
         </div>
     </div>
   <% end %>
