@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-8">
     <%= simple_form_for(current_user) do |f| %> <!--- to change to icon with Edit your profile -->
-      <% link_to edit_user_path(current_user) do %>
+      <% link_to edit_profile_path(current_user) do %>
         <%= f.button :submit, "Edit Your Profile", class: "btn btn-primary" %>
       <% end %>
     <% end %>
@@ -48,4 +48,4 @@
 
 <%= simple_form_for(current_user) do |f| %>
  <%= link_to "Edit Your Profile", edit_profile_path(current_user) %>
-
+<% end %>

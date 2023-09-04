@@ -6,6 +6,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:edit_profile, :edit, :update, :destroy]
 
   def edit_profile
+    @user = current_user
+  end
+
+  def create_profile
+    @user = current_user
   end
   # GET /resource/sign_up
   # def new
@@ -86,7 +91,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     super(resource)
-    new_user_session_path
+    edit_profile_path
   end
 
   def after_update_path_for(resource)
@@ -95,6 +100,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     elsif params["user"][:email]
       set_flash_message(:notice, :email_updated, {})
       edit_user_registration_path(resource)
+    elsif params["user"][:description]
+      root_path
     else
       set_flash_message(:notice, :profile_updated, {})
       edit_profile_path(resource)
