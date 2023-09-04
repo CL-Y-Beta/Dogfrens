@@ -4,10 +4,12 @@
 
   <div class="listing-show-header">
     <h1><%= @listing.title %></h1>
-    <% if current_user.id == @listing.user_id %>
-    <% # delete button still doesn't work... troubleshoot later %>
-    <%= link_to image_tag("delete_symbol.svg", width: "14px"), listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(@listing) %>
+    <% if current_user == true %>
+      <% if current_user.id == @listing.user_id %>
+      <% # delete button still doesn't work... troubleshoot later %>
+      <%= link_to image_tag("delete_symbol.svg", width: "14px"), listing_path(@listing), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <%= link_to image_tag("edit_symbol.svg", width: "14px"), edit_listing_path(@listing) %>
+      <% end %>
     <% end %>
   </div>
 
@@ -70,10 +72,12 @@
       <div class="listing-key-information-bottom">
 
         <div class="listing-seller-info">
-          <% if current_user.profile_photo.key == nil %>
-            <%= image_tag("dog_logo.png", :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
-          <% else %>
-            <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+          <% if current_user == true %>
+            <% if current_user.profile_photo.key == nil %>
+              <%= image_tag("dog_logo.png", :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+            <% else %>
+              <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+            <% end %>
           <% end %>
           <div class="listing-seller-name">
             <p id="created-by">Listing created by<p>
