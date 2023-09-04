@@ -36,8 +36,8 @@ puts 'Creating 15 fake listings...'
     price: Faker::Number.number(digits: 3),
     discount: Faker::Number.between(from: 1, to: 8) * 10,
     location: Faker::Address.street_address,
-    category:["food", "supplies", "grooming", "accessories"].sample,
-    redeem_description: Faker::Lorem.paragraph_by_chars(number: 2000, supplemental: false),
+    category: ["food", "supplies", "grooming", "accessories"].sample,
+    redeem_description: Faker::Lorem.paragraph_by_chars(number: 750, supplemental: false),
     user_id: User.all.sample.id,
     quantity_left: Faker::Number.between(from: 1, to: 20)
   )
