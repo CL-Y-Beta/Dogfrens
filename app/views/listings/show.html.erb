@@ -11,10 +11,49 @@
     <% end %>
   </div>
 
-  <div class="listing-image-and-key-info">
+</div>
+
+<div class="listings-show-page-container">
+
+  <div class="listing-show-page-left">
+
     <div id="listing-image-border">
       <div id="listing-image" style="background-image: url('<%= @listing.photo.attached? ? cl_image_path(@listing.photo.key,:crop=>"fill") : asset_path('Kallang_River_at_Bishan_Park.jpg') %>');"></div>
     </div>
+
+    <div class="listing-show-bottom">
+
+      <h3>Description</h3>
+      <p><%= @listing.description  %></p>
+
+      <h3>How to Redeem</h3>
+      <p><%= @listing.redeem_description %></p>
+
+      <h3>Location</h3>
+      <p><%= @listing.location  %></p>
+
+      <div data-controller="map"
+        data-map-marker-value='<%= @marker.to_json %>'
+        data-map-api-key-value="<%=ENV['MAPBOX_API_KEY']%>"
+        id='map'
+        style='width: 620px; height: 300px; position: relative;'>
+      </div>
+
+      <br>
+
+      <h5>Other listings that may interest you</h5>
+
+      <div class="other-listings-container">
+        <% @listings.each do |listing| %>
+        <%= render listing %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="listing-show-page-right">
 
     <div class="listing-key-information">
 
@@ -54,35 +93,7 @@
 
       </div>
     </div>
-  </div>
 
-  </div>
-
-  <div class="listing-show-bottom">
-
-    <h3>Description</h3>
-    <p><%= @listing.description  %></p>
-
-    <h3>How to Redeem</h3>
-    <p><%= @listing.redeem_description %></p>
-
-    <h3>Location</h3>
-    <p><%= @listing.location  %></p>
-    <div data-controller="map"
-      data-map-marker-value='<%= @marker.to_json %>'
-      data-map-api-key-value="<%=ENV['MAPBOX_API_KEY']%>"
-      id='map'
-      style='width: 620px; height: 300px; position: relative;'>
-    </div>
-
-    <br>
-
-    <h5>Other listings that may interest you</h5>
-    <div class="other-listings-container">
-      <% @listings.each do |listing| %>
-      <%= render listing %>
-      <% end %>
-    </div>
   </div>
 
 </div>

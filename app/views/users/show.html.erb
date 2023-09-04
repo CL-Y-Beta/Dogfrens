@@ -1,7 +1,7 @@
 <h1>My Profile Page</h1>
 
 <%= simple_form_for(current_user) do |f| %>
-  <% link_to edit_user_path(current_user) do %>
+  <% link_to edit_profile_path(current_user) do %>
     <%= f.button :submit, "Edit Your Profile", class: "btn btn-primary" %>
     <% end %>
 <% end %>
