@@ -11,7 +11,11 @@
       <div class="profile-picture-container">
         <label for="profile-picture-upload" class="profile-picture-link">
           <div class="profile-picture">
-            <%= cl_image_tag(current_user.profile_photo.key,:gravity=>"face", :height=>200, :width=>200, :crop=>"fill",:radius=>"max") %>
+            <% if current_user.profile_photo.attached? %>
+              <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+            <% else %>
+              <%= image_tag "dog_logo.png", { width: "30", height: "30", class: "profile-pic", style: "border-radius: 50%;" } %>
+            <% end %>
           </div>
         </label>
       </div>
