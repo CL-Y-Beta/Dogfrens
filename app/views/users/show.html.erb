@@ -3,7 +3,11 @@
     <div class="col-sm-4">
     <%= link_to "< back", :back, class: "back-button" %>
       <div class="my-profile-pic text-center">
-        <%= cl_image_tag current_user.profile_photo.key, class: "rounded-circle shadow-4-strong", height: 200 %>
+        <% if current_user.profile_photo.key == nil %>
+          <%= image_tag("dog_logo.png", :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+        <% else %>
+          <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+        <% end %>
         <h3 class="text-center fs-5"><%= current_user.username %></h3>
         <h2 class="text-center fs-6">Ratings</h2> <!--- how to calculate this ratings-->
       </div>
