@@ -1,11 +1,24 @@
 .index-container {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 40px 30px 20px 30px;
 }
 
-.index-container h1 {
-  padding-left: 50px;
+.page-container {
+  padding: 90px 50px;
+}
+
+.page-container h1 {
+  padding-left: 150px;
+}
+
+.listing-index-container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 65px;
+  justify-content: left;
+  padding: 20px 0px;
 }

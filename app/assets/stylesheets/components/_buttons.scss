@@ -1,0 +1,21 @@
+.call-to-action-btn {
+  text-decoration: none;
+  background-color: $accent-color;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 3px 10px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgb(26, 26, 26);
+  font-family: 'secular one';
+  box-shadow: 1px 1px 0px 2px black;
+}
+
+
+#home-page-main-btn {
+  background-color: $fill-color;
+
+  :hover {
+    background-color:rgb(221, 161, 70);
+  }
+}

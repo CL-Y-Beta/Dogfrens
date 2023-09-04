@@ -2,7 +2,7 @@
 <div class="navbar">
   <div class="navbar-left">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "dog_logo.png", width: "40"%>
+      <%= image_tag "dogfrenslogo.svg", width: "150px", height: "40px"%>
     <% end %>
     <%= link_to "Home", root_path %>
     <%= link_to "All Deals", listings_path %>
@@ -10,7 +10,7 @@
         <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control custom-input",
+          class: "custom-input",
           placeholder: "Search for a listing"
         %>
         <%= submit_tag "Search", name: "", class: "custom-button" %>
@@ -38,7 +38,7 @@
   <% else %>
     <div class="navbar-right">
       <li>
-        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Login", new_user_session_path, style: "font-weight: bold" %>
       </li>
     </div>
   <% end %>

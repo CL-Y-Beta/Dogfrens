@@ -1,11 +1,12 @@
 .listing-card {
   display: flex;
-  align-items: flex-end; /* Align items horizontally at the end */
-  width: 300px;
+  align-items: flex-end;
+  width: 293px;
   height: 325px;
   background-size: cover;
-  border-radius: 20px;
-  border: 0.2em solid #000000;
+  border-radius: 5px;
+  box-shadow: 1px 1px 0px 2px #333;
+  border: 1px solid black;
 }
 
 .listing-bottom {
@@ -13,11 +14,11 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 20px;
-  background-color: white;
+  background-color: #e6dac9;
   height: 130px;
-  width: 300px;
-  border-top: 0.2em solid #000000;
-  border-radius: 18px;
+  width: 350px;
+  // border-top: 0.2em solid #000000;
+  border-radius: 3px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -28,13 +29,15 @@
 }
 
 .listing-details-bottom a.view-deal {
-  background-color: $green;
-  padding: 4px 7px 4px 7px;
+  background-color: #F5BB00;
+  padding: 4px 10px 4px 10px;
   text-decoration: none;
-  font-size: 0.8em;
-  font-weight: bold;
-  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 10px;
   color: #000000;
+  border: 1px solid #777272;
+  box-shadow: 2px 2px 0px .8px black;
 }
 
 .listing-details  {
@@ -51,11 +54,12 @@
 .listing-prices h5 {
   font-size: 1rem;
   margin: 0;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .listing-prices p {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  color: gray;
 }
 
 #listing-title {

@@ -12,13 +12,13 @@
 }
 
 .navbar {
-  background-color: white;
+  background-color: #1f1f1f;
   position: sticky;
   top: 0px;
   display: flex;
   align-items: center;
   padding: 1em 2em 1em 3em;
-  border-top: 0.3em solid #8EA604;
+  border-top: 0.3em solid #F5BB00;
   z-index: 1;
 }
 
@@ -36,12 +36,12 @@
 
 .navbar a {
   text-decoration: none;
-  color: #273A42;
+  color: #f1f1f1;
 }
 
 .navbar a:hover {
   text-decoration: none;
-  color: #1e2e34;
+  color: #eecd3a;
 }
 
 .navbar a.dog-deal{
@@ -64,18 +64,28 @@
 
 .custom-input {
   background-color: transparent;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   border: 1px solid #ccc;
+  color: white;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .custom-button {
   background-color: #F5BB00;
   border: 1px solid #ccc;
-  font-weight: bold;
+  font-weight: 500;
+  color:#222222;
+  font-size: 0.95rem;
   cursor: pointer;
+  padding: 0px 7px;
+  border-radius: 0px 10px 10px 0px;
 }
 
 .custom-button:hover {
   background-color: #ffe646;
+}
+
+.custom-input:focus {
+  outline: none; /* Remove the default focus outline (not recommended for accessibility) */
 }

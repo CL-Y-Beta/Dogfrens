@@ -1,46 +1,84 @@
 // Specific CSS for your home-page
 
 .listing-container {
-  width: 900;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding-top: 30px;
+  padding: 40px 0px;
 }
 
+#container {
+  max-width: 1350px;
+}
 
-.my-container {
+.homepage-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 20px 30px 20px 30px;
+  padding: 30px 0px;
+}
+
+#cta-hmpage-container {
+  padding-bottom: 100px;
+  padding-top: 90px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 #home-page-banner {
-  width: 75%;
-  height: 350px;
+  width: 100%;
+  height: 400px;
+  background-image: url(home_banner.webp);
+  background: cover;
+  padding: 150px 60px;
+  justify-content: center;
+  display: flex;
+}
+
+
+
+#home-page-banner2 {
+  width: 100%;
+  height: 400px;
   background-image: url(doggiedeal.webp);
-  border-radius: 30px;
-  border: 3px solid black;
   text-align: right;
-  padding: 100px 50px 50px 30px;
+  padding: 30px 50px 60px 50px;
   justify-content: right;
-  margin-bottom: 30px;
   display: flex;
 }
 
 #home-page-welcome {
   display:flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 #home-page-spacer {
   width: 55%;
   height: 1px;
+}
+
+#home-page-spacer-small {
+  width: 30%;
+  height: 1px;
+}
+
+.socials-bottom {
+  width: 100%;
+  height: 350px;
+  background-color: rgb(24, 24, 24);
+  color: #F5BB00;
+  padding-bottom: 0px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
 }
 
 @media screen and (max-width: 1000px) {

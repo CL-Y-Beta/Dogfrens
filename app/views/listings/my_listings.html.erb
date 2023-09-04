@@ -1,13 +1,21 @@
 
-<div class="container">
+<div class="page-container">
 
-  <%= link_to "< back", :back, class: "back-button" %>
-  <h1>Manage Dog-Deals (<%= @listings.count%>)</h1>
-  <div class="listing-container", id="My_listings">
-    <% @listings.each do |listing| %>
 
-      <%= render listing %>
-    <% end %>
+  <div class="index-header">
+
+    <h1>Manage Dog-Deals (<%= @listings.count%>)</h1>
+    <%= link_to "back", :back, class: "back-button" %>
+
+  </div>
+
+  <div class="index-container">
+    <div class="listing-index-container", id="My_listings">
+      <% @listings.each do |listing| %>
+
+        <%= render listing %>
+      <% end %>
+    </div>
   </div>
 
 </div>
