@@ -1,0 +1,28 @@
+h1 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 35px;
+  color: black;
+}
+
+#sub-header {
+  color: darkgray;
+}
+
+.login-form {
+  font-weight: bold;
+}
+
+.login-button {
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  background-color: #F5BB00;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #ffe646;
+}
