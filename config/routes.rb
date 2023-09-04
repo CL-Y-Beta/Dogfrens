@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "users/my-account/password", to: "users/passwords#index", as: :change_password
     get 'users/edit-profile', to: 'users/registrations#edit_profile', as: :edit_profile
+    get 'users/create-profile', to: 'users/registrations#create_profile', as: :create_profile
     # patch 'users/edit-profile', to: 'users/registrations#update_profile', as: :update_profile
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

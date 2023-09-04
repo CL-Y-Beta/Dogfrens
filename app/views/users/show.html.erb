@@ -13,9 +13,11 @@
       </div>
     </div>
     <div class="col-md-8">
+
       <div class="mb-3">
         <i class="fa-regular fa-pen-to-square"></i> <%= link_to "Edit Profile", edit_user_path(current_user), class:"text-lowercase fs-6 fw-light text-decoration-underline mt-3 mb-2" %>
       </div>
+
       <h2>About <%= current_user.username %></h2>
       <p><%= current_user.description %></p>
       <hr>
@@ -34,3 +36,4 @@
         </div>
     </div>
 </div>
+

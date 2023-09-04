@@ -3,7 +3,7 @@
 <div class="profile-edit-container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6 text-center header-container">
-      <h1 class="custom-header">Edit Your Profile</h1>
+      <h1 class="custom-header">Create Your Profile</h1>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -14,7 +14,7 @@
             <% if current_user.profile_photo.attached? %>
               <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
             <% else %>
-              <%= image_tag "dog_logo.png", { width: "90", height: "90", class: "profile-pic", style: "border-radius: 50%;" } %>
+              <%= image_tag "dog_logo.png", { width: "30", height: "30", class: "profile-pic", style: "border-radius: 50%;" } %>
             <% end %>
           </div>
         </label>
