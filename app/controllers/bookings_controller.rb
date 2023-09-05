@@ -15,7 +15,11 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.update(confirmed: true)
+    if @booking.confirmed == false || @booking.confirmed.nil?
+      @booking.update(confirmed: true)
+    elsif @booking.confirmed == true
+      @booking.update(redeemed: true)
+    end
     redirect_to seller_bookings_path
   end
 

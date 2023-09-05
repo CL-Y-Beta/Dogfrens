@@ -12,14 +12,25 @@
 }
 
 .navbar {
-  background-color: #1f1f1f;
+  background-color: $fill-color;
   position: sticky;
   top: 0px;
   display: flex;
   align-items: center;
   padding: 1em 2em 1em 3em;
   border-top: 0.3em solid #F5BB00;
+  border-bottom: 0.2em solid $primary-color;
   z-index: 3;
+}
+
+.font-change{
+  font-size: 0.8rem;
+  padding: 0.3em 2em 0.3em 3em;
+  border-top: none;
+
+  img {
+    height: 30px;
+  }
 }
 
 .navbar-left {
@@ -36,12 +47,13 @@
 
 .navbar a {
   text-decoration: none;
-  color: #f1f1f1;
+  color: $primary-color;
+  font-weight: 500;
 }
 
 .navbar a:hover {
   text-decoration: none;
-  color: #eecd3a;
+  color: $accent-color;
 }
 
 .navbar a.dog-deal{
@@ -68,14 +80,19 @@
   background-color: transparent;
   padding: 5px;
   width: 100%;
-  border: 1px solid #ccc;
-  color: white;
+  border: 1px solid $primary-color;
+  color: $primary-color;
   border-radius: 10px 0px 0px 10px;
+}
+
+.custom-input:focus {
+  background-color: $primary-color;
+  color: $fill-color
 }
 
 .custom-button {
   background-color: #F5BB00;
-  border: 1px solid #ccc;
+  border: 1px solid $primary-color;
   font-weight: 500;
   color:#222222;
   font-size: 0.95rem;
@@ -96,19 +113,24 @@
 // Dropdown navbar menu
 
 a.dropdown-item {
-  background-color:#222222;
-  border-bottom:1px solid #879297;
-  color:#868686;
+  background-color:$fill-color;
+  border-bottom:1px solid $primary-color;
+  color:$primary-color;
 }
 
 .dropdown-menu {
   border-radius: 5px;
-  background-color: #222222;
+  background-color: $fill-color;
   padding: 0;
 }
 
 #navbarDropdown {
-  color: #f1f1f1;
+  color: $primary-color;
+  font-weight: 500;
+
+  :hover {
+    color: $accent-color;
+  }
 }
 
 a:hover.dropdown-item  {

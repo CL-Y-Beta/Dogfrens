@@ -1,46 +1,46 @@
 
-<div class="navbar">
-  <div class="navbar-left">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "dogfrenslogo.svg", width: "150px", height: "40px"%>
-    <% end %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "All Deals", listings_path %>
-      <div>
-        <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "custom-input",
-          placeholder: "Search for a listing"
-        %>
-        <%= submit_tag "Search", name: "", class: "custom-button" %>
-        <% end %>
+  <div class="navbar" data-controller="navbar" data-navbar-target="navbar">
+    <div class="navbar-left">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag "dogfrenslogo.svg", width: "150px", height: "40px"%>
+      <% end %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "All Deals", listings_path %>
+        <div>
+          <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "custom-input",
+            placeholder: "Search for a listing"
+          %>
+          <%= submit_tag "Search", name: "", class: "custom-button" %>
+          <% end %>
+        </div>
       </div>
-    </div>
 
-  <% if user_signed_in? %>
-    <div class="navbar-right">
-      <%= link_to "Bookings", buyer_bookings_path %>
-      <%= link_to "Wishlist", bookmarks_path%>
-        <li class="nav-item dropdown">
-        <span class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account
-        </span>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Listings", my_listings_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-          </div>
+    <% if user_signed_in? %>
+      <div class="navbar-right">
+        <%= link_to "Bookings", buyer_bookings_path %>
+        <%= link_to "Wishlist", bookmarks_path%>
+          <li class="nav-item dropdown">
+          <span class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </span>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My Listings", my_listings_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <%= link_to "Create Dog Deal", new_listing_path, class: "dog-deal"%>
+      </div>
+    <% else %>
+      <div class="navbar-right">
+        <li>
+          <%= link_to "Login", new_user_session_path, style: "font-weight: bold" %>
         </li>
-      <%= link_to "Create Dog Deal", new_listing_path, class: "dog-deal"%>
-    </div>
-  <% else %>
-    <div class="navbar-right">
-      <li>
-        <%= link_to "Login", new_user_session_path, style: "font-weight: bold" %>
-      </li>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
 
-</div>
+  </div>

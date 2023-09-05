@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 20px;
-  background-color: #e6dac9;
+  background-color: $tertiary-color;
   height: 130px;
   width: 350px;
   // border-top: 0.2em solid #000000;
@@ -35,9 +35,14 @@
   font-size: 1em;
   font-weight: 500;
   border-radius: 10px;
-  color: #000000;
-  border: 1px solid #777272;
-  box-shadow: 2px 2px 0px .8px black;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  box-shadow: 2px 2px 0px 0px black;
+}
+
+.listing-details-bottom a.view-deal:hover {
+  background-color: $primary-color;
+  color: $fill-color;
 }
 
 .listing-details  {

@@ -37,6 +37,7 @@
   padding: 150px 60px;
   justify-content: center;
   display: flex;
+  border-bottom: 3px solid black;
 }
 
 
@@ -49,6 +50,8 @@
   padding: 30px 50px 60px 50px;
   justify-content: right;
   display: flex;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 #home-page-welcome {

@@ -11,7 +11,7 @@
         <% if booking.confirmed == false %>
           <div class="card w-100 mb-4 " id="booking-card">
             <div class="card-body-left">
-              <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
+              <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
               <p class="card-text">Requested by <b><%= link_to booking.dog_owner.email, user_path(booking.dog_owner), class: "link-text-color" %></p></b>
             </div>
             <div class="card-body-right">
@@ -30,12 +30,17 @@
     <% if booking.confirmed %>
       <div class="card w-100 mb-4 " id="booking-card-seller-confirmed">
           <div class="card-body-left">
-            <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
+            <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
             <p class="card-text">Requested by <b><%= link_to booking.dog_owner.email, user_path(booking.dog_owner), class: "link-text-color" %></p></b>
           </div>
           <div class="card-body-right">
-            <a href="#" class="btn btn-primary mb-4" id="booking-btn">Mark as Redeemed</a>
+          <% if booking.redeemed %>
+            <p style="font-weight: bold; padding: 10px 0px;">Redeemed</p>
             <%= link_to raw("View Details <i class='fa-solid fa-caret-right'></i>"), booking_path(booking), class: "view-details" %>
+          <% else %>
+            <%= button_to "Mark as Redeemed", accept_booking_path(booking), method: :patch,class: "btn mb-4 btn-primary", id: "booking-btn" %>
+            <%= link_to raw("View Details <i class='fa-solid fa-caret-right'></i>"), booking_path(booking), class: "view-details" %>
+          <% end %>
           </div>
       </div>
     <% end %>

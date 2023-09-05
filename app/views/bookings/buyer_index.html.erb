@@ -13,7 +13,7 @@
       <% if booking.confirmed %>
         <div class="card w-100 mb-4" id="booking-card-confirmed">
           <div class="card-body-left">
-            <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
+            <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
             <p class="card-text">Requested to <b><%= link_to booking.listing.user.username, user_path(booking.listing.user), class: "link-text-color" %></b></p>
           </div>
           <div class="card-body-right">
@@ -31,7 +31,7 @@
     <% if !booking.confirmed %>
       <div class="card w-100 mb-4" id="booking-card">
         <div class="card-body-left">
-          <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
+          <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
           <p class="card-text">Requested to <b><%= link_to booking.listing.user.username, user_path(booking.listing.user), class: "link-text-color" %></b></p>
         </div>
         <div class="card-body-right">
