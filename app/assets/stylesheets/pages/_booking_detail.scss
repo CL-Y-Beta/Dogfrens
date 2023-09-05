@@ -7,47 +7,57 @@
   border-radius: 5px;
   background-color: #F5BB00;
   border: #F5BB00;
-  color: #000000;
-  padding: 6px 98px;
+  color:  $primary-color;
+  padding: 6px 50px;
+  font-size: 15px;
 }
 
 .booking-info {
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .booking-info-left {
   flex: 3;
-  color: #000000;
+  color:  $primary-color;
 }
 
 .booking-info-right {
   text-align: left;
-  color: #000000;
+  color:  $primary-color;
 }
 
-.booking-confirmation {
+.booking-confirmed {
   font-size: 20px;
-  margin: 30px 0px;
+  margin: 10px 0px;
+  color: #d8a600;
+}
+
+.booking-unconfirmed {
+  font-size: 20px;
+  margin: 10px 0px;
+  color: $primary-color;
 }
 
 .creator-username {
   margin: 30px 0;
-  color: #6F6F6F;
+  color: $primary-color;
 }
 
 .contact {
   display: flex;
   gap: 50%;
+  color: $secondary-color;
+  font-size: 0.5rem;
 }
 
 .view-profile-btn {
   border-radius: 5px;
   background-color: #F5BB00;
   border: #F5BB00;
-  color: #000000;
+  color:  $primary-color;
   padding: 6px 25px;
   font-size: 15px;
 }
@@ -55,9 +65,28 @@
 .details {
   list-style: none;
   padding: 0;
+  color: $secondary-color;
 }
 
-.creator-details-header {
+.booking-details-header {
   display: flex;
   gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  h5{
+    margin: 0;
+    color: $secondary-color;
+  }
+
+}
+
+.booking-page {
+  color: $primary-color;
+}
+
+.creator-details {
+  background-color: $tertiary-color;
+  border: 2px solid $tertiary-color-border;
+  padding: 30px 40px;
+  border-radius: 15px;
 }

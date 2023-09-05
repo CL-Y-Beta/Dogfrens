@@ -4,7 +4,7 @@
 
 
       <div class="listing-show-header">
-        <%= link_to raw("<i class='fa-solid fa-circle-arrow-left back-button'></i>"), :back, class: "back-button" %>
+        <%= link_to raw("<i class='fa-solid fa-circle-arrow-left back-button'></i>"), :back, class: "back-button"%>
         <h1><%= @listing.title %></h1>
         <% if user_signed_in? %>
           <% if current_user.id == @listing.user_id %>
@@ -90,7 +90,7 @@
 
           <div class="listing-buttons">
             <% if current_user && @listing.user_id != current_user.id %>
-            <%= button_to "Book Now", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1" %>
+            <%= button_to "Book Now", bookings_path(listing_id: @listing.id, user_id: current_user.id), method: :post, class: "btn btn-primary me-1", data: { turbo_method: :delete, turbo_confirm: "Make this booking? You can't refund it."} %>
             <% end %>
             <% if current_user %>
               <% if current_user.bookmarks.exists?(listing_id: @listing.id) %>
