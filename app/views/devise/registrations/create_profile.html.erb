@@ -19,6 +19,7 @@
           </div>
         </label>
       </div>
+
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.input :username, as: :string, required: true %>
           <%= f.input :profile_photo, as: :file, label: 'Upload a profile picture'%>
@@ -28,6 +29,7 @@
           <div class="form-spacing"></div>
           <%= f.submit "Update Your Profile", class: "submit-button", method: :patch %>
         <% end %>
+
     </div>
   </div>
 </div>

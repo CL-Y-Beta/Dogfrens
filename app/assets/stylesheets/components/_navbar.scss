@@ -19,7 +19,7 @@
   align-items: center;
   padding: 1em 2em 1em 3em;
   border-top: 0.3em solid #F5BB00;
-  z-index: 1;
+  z-index: 3;
 }
 
 .navbar-left {
@@ -46,9 +46,11 @@
 
 .navbar a.dog-deal{
   text-decoration: none;
-  color: #5f737c;
+  color: #879297;
   font-size: 0.8em;
 }
+
+
 
 .navbar li {
   padding: 0px;
@@ -88,4 +90,28 @@
 
 .custom-input:focus {
   outline: none; /* Remove the default focus outline (not recommended for accessibility) */
+}
+
+
+// Dropdown navbar menu
+
+a.dropdown-item {
+  background-color:#222222;
+  border-bottom:1px solid #879297;
+  color:#868686;
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+  background-color: #222222;
+  padding: 0;
+}
+
+#navbarDropdown {
+  color: #f1f1f1;
+}
+
+a:hover.dropdown-item  {
+  background-color:#474747;
+  color: $accent-color;
 }

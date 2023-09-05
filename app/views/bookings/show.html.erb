@@ -1,20 +1,21 @@
-<main>
-<%= link_to '< back to bookings' %>
+<main class="container">
+<%= link_to raw("<i class='fa-solid fa-circle-arrow-left back-button'></i>"), :back, class: "back-button" %>
 <section>
   <div class="booking-details">
     <h1>Booking Details</h1>
     <%= link_to "View Listing", listing_path(@booking.listing_id), class: "btn btn-primary view-btn" %>
   </div>
+  <h3 class="booking-confirmation"> <% if @booking.confirmed == true %>
+    <%= "CONFIRMED" %>
+  <% else %>
+    <%= "UNCONFIRMED" %>
+  <% end %>
+</h3>
   <div class="booking-info">
     <h2 class="booking-info-left"><%= @booking.listing.title%></h2>
     <h2 class="booking-info-right"> SGD <%= @booking.booking_price%> </h2>
   </div>
-  <h3 class="booking-confirmation"> <% if @booking.confirmed == true %>
-      <%= "STATUS: CONFIRMED" %>
-    <% else %>
-      <%= "STATUS: UNCONFIRMED" %>
-    <% end %>
-  </h3>
+
   <article>
     <h4 class="pb-2">How To Redeem</h4>
     <p class="fw-light pb-5"><%= @booking.listing.redeem_description %></p>
@@ -22,12 +23,14 @@
 </section>
 
 <section class="creator-details">
-  <h3> Dog-Deal Creator </h3>
-  <h4 class="creator-email"><%= @booking.listing.user.email %></h4>
+  <div class="creator-details-header">
+    <h3> Dog-Deal Creator </h3>
+    <h5><%= link_to "View Profile", user_path(@booking.listing.user), class: "btn btn-primary view-profile-btn" %></h5>
+  </div>
+  <h4 class="creator-username"><%= @booking.listing.user.username %></h4>
   <div>
     <div class="contact">
       <h4> Contact Information </h4>
-      <h4><%= link_to "View Profile", user_path(@booking.listing.user), class: "btn btn-primary view-profile-btn" %></h4>
     </div>
     <div>
       <ul class="details">

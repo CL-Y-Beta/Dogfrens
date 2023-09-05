@@ -8,7 +8,7 @@
   font-size: 1.5rem;
   color: rgb(26, 26, 26);
   font-family: 'secular one';
-  box-shadow: 1px 1px 0px 2px black;
+  box-shadow: 2px 2px 0px 0px black;
 }
 
 
@@ -18,4 +18,35 @@
   :hover {
     background-color:rgb(221, 161, 70);
   }
+}
+
+.btn-primary {
+  border-radius: 5px;
+  color: $primary-color;
+  font-weight: 500;
+  background-color: $accent-color;
+  box-shadow: 1px 1px 0px 2px black;
+
+}
+
+.back-button {
+  color: $tertiary-color-border;
+  font-size: 1.5rem;
+
+  :hover {
+    color: $secondary-color;
+  }
+}
+
+.btn-secondary {
+  border-radius: 5px;
+  color: $primary-color;
+  font-weight: 500;
+  background-color: $tertiary-color-border;
+  box-shadow: 1px 1px 0px 2px black;
+
+  :hover {
+    background-color: $primary-color;
+  }
+
 }

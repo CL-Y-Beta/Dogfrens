@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def edit_profile
     @user = current_user
+
   end
 
   def create_profile
@@ -101,7 +102,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_flash_message(:notice, :email_updated, {})
       edit_user_registration_path(resource)
     elsif params["user"][:description]
-      root_path
+      user_path(current_user)
     else
       set_flash_message(:notice, :profile_updated, {})
       edit_profile_path(resource)

@@ -13,6 +13,7 @@
 
 .booking-info {
   display: flex;
+  justify-content: space-between;
   margin-top: 80px;
   margin-bottom: 40px;
 }
@@ -23,16 +24,16 @@
 }
 
 .booking-info-right {
-  flex: 1;
+  text-align: left;
   color: #000000;
 }
 
 .booking-confirmation {
   font-size: 20px;
-  margin-bottom: 60px;
+  margin: 30px 0px;
 }
 
-.creator-email {
+.creator-username {
   margin: 30px 0;
   color: #6F6F6F;
 }
@@ -47,11 +48,16 @@
   background-color: #F5BB00;
   border: #F5BB00;
   color: #000000;
-  padding: 6px 98px;
-  font-size: 24px;
+  padding: 6px 25px;
+  font-size: 15px;
 }
 
 .details {
   list-style: none;
   padding: 0;
+}
+
+.creator-details-header {
+  display: flex;
+  gap: 30px;
 }

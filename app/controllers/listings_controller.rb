@@ -17,7 +17,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @bookmark = Bookmark.new
-    @listings = Listing.all.limit(6)
+    @listings = Listing.all.limit(8)
     @marker = { lat: @listing.latitude, lng: @listing.longitude }
   end
 
