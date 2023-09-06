@@ -1,18 +1,19 @@
-
 <div class="container" style="padding:70px 0px;">
   <%= link_to raw("<i class='fa-solid fa-circle-arrow-left back-button'></i>"), :back, class: "back-button"%>
 
   <div class="row justify-content-center">
     <div class="col-sm-3">
       <div class="my-profile-pic text-center">
-        <% if current_user.profile_photo.key == nil %>
+        <% if @user.profile_photo.key == nil %>
           <%= image_tag("dog_logo.png", :width=>200, :height=>200, class: "profile-page-pic", style: "border-radius: 50%;") %>
         <% else %>
-          <%= cl_image_tag(current_user.profile_photo.key, :width=>200, :height=>200, class: "profile-pic", style: "border-radius: 50%;") %>
+          <%= cl_image_tag(@user.profile_photo.key, :width=>200, :height=>200, class: "profile-pic", style: "border-radius: 50%;") %>
         <% end %>
         <h4 class="text-center fs-5 mt-3 mb-1" ><%= @user.username %></h4>
-        <% if @user.id == current_user.id %>
-          <%= link_to "Edit Your Profile", edit_profile_path(@user), class: "edit-your-profile-link" %>
+        <% if user_signed_in? %>
+          <% if @user.id == current_user.id %>
+            <%= link_to "Edit Your Profile", edit_profile_path(@user), class: "edit-your-profile-link" %>
+          <% end %>
         <% end %>
       </div>
     </div>
