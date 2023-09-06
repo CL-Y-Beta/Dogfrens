@@ -1,51 +1,35 @@
-<div class="container">
+<div class="container" style="padding:70px 0px;">
+
   <div class="row justify-content-center">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <div class="my-profile-pic text-center">
-        <img class="rounded-circle shadow-4-strong" alt="avatar2" src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" />
-        <h3 class="text-center fs-5"><%= current_user.username %></h3>
-        <h2 class="text-center fs-6">Ratings</h2> <!--- how to calculate this ratings-->
+        <% if current_user.profile_photo.key == nil %>
+          <%= image_tag("dog_logo.png", :width=>200, :height=>200, class: "profile-page-pic", style: "border-radius: 50%;") %>
+        <% else %>
+          <%= cl_image_tag(current_user.profile_photo.key, :width=>200, :height=>200, class: "profile-pic", style: "border-radius: 50%;") %>
+        <% end %>
+        <h4 class="text-center fs-5 mt-3 mb-1" ><%= @user.username %></h4>
+        <% if @user.id == current_user.id %>
+          <%= link_to "Edit Your Profile", edit_profile_path(@user), class: "edit-your-profile-link" %>
+        <% end %>
       </div>
     </div>
-    <div class="col-md-8">
-    <%= simple_form_for(current_user) do |f| %> <!--- to change to icon with Edit your profile -->
-      <% link_to edit_profile_path(current_user) do %>
-        <%= f.button :submit, "Edit Your Profile", class: "btn btn-primary" %>
-      <% end %>
-    <% end %>
-      <h2>About <%= current_user.username %></h2>
-      <p><%= current_user.description %></p>
+
+    <div class="col-md-9">
+
+      <h2>About <%=@user.username %></h2>
+      <p><%= @user.description %></p>
       <hr>
-      <h2>Listings</h2>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class=card>
-              <div class="card-body">
-                <h5 class="card-title">Listing Title</h5> <!--- How do I get the listing title--->
-                <p class="card-text">Listing Description</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class=card>
-              <div class="card-body">
-                <h5 class="card-title">Listing Title</h5> <!--- How do I get the listing title--->
-                <p class="card-text">Listing Description</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class=card>
-              <div class="card-body">
-                <h5 class="card-title">Listing Title</h5> <!--- How do I get the listing title--->
-                <p class="card-text">Listing Description</p>
-              </div>
-            </div>
-          </div>
-        </div>
+
+    <h4>Available Dog-Deals</h4>
+
+    <div class="profile-listings-container">
+      <% @listings.each do |listing| %>
+
+        <%= render listing %>
+
+      <% end %>
+    </div>
+
     </div>
 </div>
-
-<%= simple_form_for(current_user) do |f| %>
- <%= link_to "Edit Your Profile", edit_profile_path(current_user) %>
-<% end %>
