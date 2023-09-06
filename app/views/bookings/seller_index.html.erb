@@ -12,7 +12,7 @@
           <div class="card w-100 mb-4 " id="booking-card">
             <div class="card-body-left">
               <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
-              <p class="card-text">Requested by <b><%= link_to booking.dog_owner.email, user_path(booking.dog_owner), class: "link-text-color" %></p></b>
+              <p class="card-text">Requested by <b><%= link_to booking.dog_owner.username, user_path(booking.dog_owner), class: "link-text-color" %></p></b>
             </div>
             <div class="card-body-right">
               <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-primary mb-4", id: "booking-btn" %>
