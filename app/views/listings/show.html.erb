@@ -75,13 +75,13 @@
                 <% if @listing.user.profile_photo.key == nil %>
                   <%= image_tag("dog_logo.png", :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
                 <% else %>
-                  <%= cl_image_tag(@listing.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+                  <%= cl_image_tag(@listing.user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
                 <% end %>
               <% else %>
                 <% if @listing.user.profile_photo.key == nil %>
                   <%= image_tag("dog_logo.png", :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
                 <% else %>
-                  <%= cl_image_tag(@listing.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
+                  <%= cl_image_tag(@listing.user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
                 <% end %>
               <% end %>
             </div>
