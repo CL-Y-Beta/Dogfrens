@@ -1,0 +1,15 @@
+.profile-listings-container {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+  flex-wrap: wrap;
+}
+
+.edit-your-profile-link {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.profile-page-pic {
+  box-shadow: 3px 3px 0px 0px $primary-color;
+}
