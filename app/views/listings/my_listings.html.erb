@@ -3,9 +3,8 @@
 
 
   <div class="index-header">
-
+    <%= link_to raw("<i class='fa-solid fa-circle-arrow-left back-button'></i>"), :back, class: "back-button"%>
     <h1>Manage Dog-Deals (<%= @listings.count%>)</h1>
-    <%= link_to "back", :back, class: "back-button" %>
 
   </div>
 
