@@ -1,0 +1,17 @@
+.index-header {
+  display:flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 150px;
+}
+
+.index-header a {
+  display:flex;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.index-header h1 {
+  padding: 0;
+}

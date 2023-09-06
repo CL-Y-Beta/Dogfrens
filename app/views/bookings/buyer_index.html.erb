@@ -1,41 +1,47 @@
+<main class="container" style="padding: 70px 0px;">
 
-<div class="d-flex justify-content-center">
-  <p><%= link_to "As seller", seller_bookings_path %></p>
-  <p style="margin-left: 20px; font-weight: bold;">As buyer</p>
-</div>
+  <div class="d-flex justify-content-center bookings-links">
+    <p><%= link_to "As seller", seller_bookings_path %></p>
+    <p style="margin-left: 20px; font-weight: bold;">As buyer</p>
+  </div>
 
-<p>YOUR REQUESTS (<%= @bookings.where(confirmed: false).count %>)</p>
-<div class="container">
- <% @bookings.each do |booking| %>
-  <% if !booking.confirmed %>
-    <div class="card w-100 mb-4 bg-white" id="booking-card">
-      <div class="card-body-left">
-        <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-        <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user), class: "link-text-color" %></p>
-      </div>
-      <div class="card-body-right">
-        <p class="mb-4">Yet to be confirmed</p>
-        <%= link_to "View Details ->", booking_path(booking), class: "view-details" %>
-      </div>
-    </div>
-  <% end %>
- <% end %>
-</div>
 
-<p>PREVIOUSLY CONFIRMED REQUESTS (<%= @bookings.where(confirmed: true).count %>)</p>
-<div class="container">
+
+  <h5>CONFIRMED REQUESTS (<%= @bookings.where(confirmed: true).count %>)</h5>
+  <div class="container">
+    <% @bookings.each do |booking| %>
+      <% if booking.confirmed %>
+        <div class="card w-100 mb-4" id="booking-card-confirmed">
+          <div class="card-body-left">
+            <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
+            <p class="card-text">Requested to <b><%= link_to booking.listing.user.username, user_path(booking.listing.user), class: "link-text-color" %></b></p>
+          </div>
+          <div class="card-body-right">
+            <p class="mb-4 fw-bold">Confirmed</p>
+            <%= link_to raw("View Details <i class='fa-solid fa-caret-right'></i>"), booking_path(booking), class: "view-details" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h5>UNCONFIRMED REQUESTS (<%= @bookings.where(confirmed: false).count %>)</h5>
+  <div class="container">
   <% @bookings.each do |booking| %>
-    <% if booking.confirmed %>
-      <div class="card w-100 mb-4 bg-white" id="booking-card">
+    <% if !booking.confirmed %>
+      <div class="card w-100 mb-4" id="booking-card">
         <div class="card-body-left">
-          <h5 class="card-title"><b><%= booking.listing.title %></b></h5>
-          <p class="card-text">Requested to <%= link_to booking.listing.user.email, user_path(booking.listing.user), class: "link-text-color" %></p>
+          <h5 class="card-title"><b><%= booking.listing.title %> #DD<%=booking.id%></b></h5>
+          <p class="card-text">Requested to <b><%= link_to booking.listing.user.username, user_path(booking.listing.user), class: "link-text-color" %></b></p>
         </div>
         <div class="card-body-right">
-          <p class="mb-4">Redeemed</p>
-          <%= link_to "View Details ->", booking_path(booking), class: "view-details" %>
+          <p class="mb-4 fw-bold">Unconfirmed</p>
+          <%= link_to raw("View Details <i class='fa-solid fa-caret-right'></i>"), booking_path(booking), class: "view-details" %>
         </div>
       </div>
     <% end %>
   <% end %>
-</div>
+  </div>
+
+
+</main>

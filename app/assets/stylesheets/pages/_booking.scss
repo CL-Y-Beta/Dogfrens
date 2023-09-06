@@ -2,7 +2,29 @@
   display: flex;
   flex-direction: row;
   border-radius: 20px;
-  border: 0.2em solid #000000;
+  border: 0.1em solid $primary-color;
+  box-shadow: 4px 4px 0px 0px $primary-color;
+  background-color: $tertiary-color;
+}
+
+#booking-card-confirmed {
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  border: 0.1em solid $primary-color;
+  box-shadow: 4px 4px 0px 0px $primary-color;
+  background-color: $accent-color;
+  color: $primary-color;
+}
+
+#booking-card-seller-confirmed {
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  border: 0.1em solid $primary-color;
+  box-shadow: 4px 4px 0px 0px $primary-color;
+  background-color: $tertiary-color-border;
+  color: $primary-color;
 }
 
 .card-body-right {
@@ -26,10 +48,18 @@
 }
 
 .link-text-color {
-  color: #F5BB00;
+  color: #4d473a;
   text-decoration: none;
 }
 
 .view-details {
   text-decoration: none;
+  color: $secondary-color;
+}
+
+.bookings-links {
+  gap: 30px;
+  a {text-decoration: none;
+  }
+
 }

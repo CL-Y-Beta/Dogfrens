@@ -1,24 +1,30 @@
 #listing-image {
-  width: 690px;
+  width: 775px;
   height: 400px;
   background-size: cover;
   margin: 20px;
-}
-
-
-#listing-image-border {
-  display: flex;
-  justify-content: center;
   border-radius: 15px;
-  border: 3px solid black;
-  width: 750px;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px 3px black;
 }
+
+
+// #listing-image-border {
+//   display: flex;
+//   justify-content: center;
+//   border-radius: 15px;
+//   border: .5px solid black;
+//   width: 750px;
+// }
 
 .listing-show-header {
   display: flex;
   gap: 15px;
   align-items: center;
-  padding: 30px 10px 0px 40px;
+  padding: 70px 10px 0px 40px;
+  h1 {
+    margin-bottom: 0;
+  }
 }
 
 
@@ -29,27 +35,43 @@
 }
 
 .listing-key-information {
-  padding-top: 10px;
+  padding: 46px 30px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   top: 90px;
   position: sticky;
   align-self: flex-start;
+  background-color: #d7d2c8;
+  border: 2px solid #aaa69f;
+  border-radius: 15px;
+  margin-top: 22px;
 }
 
-#display-discount h4{
+.listing-key-information-top {
+  p { color: #353434;
+  }
+
+  h5 {
+    color: #353434;
+  }
+}
+
+#display-discount h5{
   padding: 4px 8px 5px 8px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #948e84;
+  background-color: $tertiary-color-border;
+  border-radius: 7px;
   width: 100px;
   text-align: center;
+  color: $primary-color;
 }
 
 
 .listing-buttons {
   display: flex;
   padding-top: 10px;
+  gap: 5px;
 }
 
 .listing-seller-info {
@@ -73,20 +95,40 @@
 }
 
 .listing-show-bottom {
-  padding-left: 30px;
+  padding-left: 22px;
   padding-top: 20px;
-  width: 500px;
+  width: 790px;
+
+  p {
+    color:#353434;
+  }
+}
+
+.show-page-bottom {
+  width: 100%;
+  margin-top: 40px;
+  padding: 40px 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: $tertiary-color;
+  border-top: 2px solid $tertiary-color-border;
+
+  h5.title {
+    align-self: flex-start;
+    padding-left: 20%;
+  }
 }
 
 .other-listings-container {
   padding-top: 20px;
   display: flex;
-  width: 900px;
-  gap: 20px;
-  justify-content: left;
+  width: 80%;
+  gap: 35px;
+  justify-content: center;
   flex-wrap: wrap;
 }
-
 
 
 // second try CSS
@@ -94,5 +136,9 @@
 .listings-show-page-container {
   display:flex;
   gap: 30px;
-  padding: 10px 30px 0px 50px;
+  padding: 0px 30px 0px 50px;
+}
+
+.listing-show-header {
+  margin: 0;
 }

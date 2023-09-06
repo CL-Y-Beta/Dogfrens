@@ -1,0 +1,64 @@
+.call-to-action-btn {
+  text-decoration: none;
+  background-color: $accent-color;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 3px 10px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgb(26, 26, 26);
+  font-family: 'secular one';
+  box-shadow: 2px 2px 0px 0px black;
+}
+
+.call-to-action-btn:hover {
+  text-decoration: none;
+  background-color: $primary-color;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 3px 10px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: $accent-color;
+  font-family: 'secular one';
+  box-shadow: 2px 2px 0px 0px black;
+}
+
+#home-page-main-btn:hover {
+  background-color: $primary-color;
+}
+
+#home-page-main-btn {
+  background-color: $fill-color;
+}
+
+.btn-primary {
+  border-radius: 5px;
+  color: $primary-color;
+  font-weight: 500;
+  background-color: $accent-color;
+  box-shadow: 1px 1px 0px 2px black;
+
+}
+
+.back-button {
+  color: $tertiary-color-border;
+  font-size: 1.5rem;
+
+  :hover {
+    color: $secondary-color;
+  }
+}
+
+.btn-secondary {
+  border-radius: 5px;
+  color: $primary-color;
+  font-weight: 500;
+  background-color: $tertiary-color-border;
+  box-shadow: 1px 1px 0px 2px black;
+
+  :hover {
+    background-color: $primary-color;
+  }
+
+}

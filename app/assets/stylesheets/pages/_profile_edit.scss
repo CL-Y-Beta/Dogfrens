@@ -1,15 +1,21 @@
 .header-container {
-  padding-bottom: 5px;
-  padding-top: 5px;
+
+  padding: 40px 45px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  h1 {
+    margin: 0;
+  }
 }
 
 .form-container {
   font-weight: bold;
+  // border-radius: 4px;
+  margin-bottom: 100px;
 }
 
-.custom-header {
-  font-size: 20px;
-}
 
 .input-spacing {
   margin-bottom: 20px;
@@ -38,8 +44,14 @@
   width: 120px;
   border-radius: 100%;
   text-align: center;
+
 }
 
+
+#edit-profile-pic {
+  border: 6px solid black;
+  box-shadow: 3px 5px 0px 3px #F5BB00;
+}
 .change-picture-text {
   display: none;
   position: absolute;

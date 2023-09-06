@@ -1,17 +1,11 @@
-<div class="my-container">
-
 <div id="home-page-banner">
-  <div id="home-page-spacer"></div>
   <div id="home-page-welcome">
-    <h1>Doggie deals for </h1>
-    <h1>your favorite fren!</h1>
+    <h1>Doggie deals for your favorite fren!</h1>
+    <%= link_to "View Deals", listings_path, class: "call-to-action-btn", id:"home-page-main-btn" %>
   </div>
 </div>
 
-
-<h2>Have a look at our doggie deals!</h2>
-
-
+<div class="homepage-container">
 
   <div class="listing-container">
     <% @listings.each do |listing| %>
@@ -20,4 +14,42 @@
 
     <% end %>
   </div>
+
 </div>
+
+<div id="home-page-banner2">
+  <div id="home-page-welcome" style="padding-right: 30px;">
+    <h1>Deal of the Day </h1>
+  </div>
+  <%= render @listings.first %>
+  <div id="home-page-spacer-small"></div>
+</div>
+
+
+<div class="homepage-container">
+  <div class="listing-container">
+    <% @listings2.each do |listing| %>
+
+      <%= render listing %>
+
+    <% end %>
+  </div>
+
+</div>
+
+<div id="cta-hmpage-container">
+  <h1> Want to create dog-deals? </h1>
+  <% if user_signed_in? %>
+    <%= link_to "Create One!", new_listing_path, class: "call-to-action-btn"%>
+  <% else%>
+    <%= link_to"Sign Up!", new_user_registration_path, class: "call-to-action-btn" %>
+  <% end %>
+</div>
+
+<section class="socials-bottom">
+  <h3>Follow us!</h3></div>
+  <div>
+  <%= link_to image_tag('socials-01.svg', width: "50px"), "#" %>
+  <%= link_to image_tag('socials-02.svg', width: "50px"), "#" %>
+  </div>
+</section>

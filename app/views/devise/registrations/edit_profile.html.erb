@@ -1,32 +1,35 @@
-<%= link_to "< back", :back, class: "back-button" %>
 
 <div class="profile-edit-container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6 text-center header-container">
-      <h1 class="custom-header">Edit Your Profile</h1>
+      <%= link_to raw("<i class='fa-solid fa-circle-arrow-left back-button'></i>"), :back, class: "back-button" %><h1 >Edit Your Profile</h1>
     </div>
   </div>
+
+  <label for="profile-picture-upload" class="profile-picture-link">
+  <div class="profile-picture">
+    <% if current_user.profile_photo.attached? %>
+      <%= cl_image_tag(current_user.profile_photo.key, :width=>250, :height=>250, id: "edit-profile-pic", class: "profile-pic", style: "border-radius: 50%;") %>
+    <% else %>
+      <%= image_tag "dog_logo.png", { width: "250", height: "250", class: "profile-pic", id: "edit-profile-pic", style: "border-radius: 50%;" } %>
+    <% end %>
+  </div>
+</label>
+
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-6 text-center form-container">
+    <div class="col-8 col-sm-4 text-center form-container">
       <div class="profile-picture-container">
-        <label for="profile-picture-upload" class="profile-picture-link">
-          <div class="profile-picture">
-            <% if current_user.profile_photo.attached? %>
-              <%= cl_image_tag(current_user.profile_photo.key, :width=>30, :height=>30, class: "profile-pic", style: "border-radius: 50%;") %>
-            <% else %>
-              <%= image_tag "dog_logo.png", { width: "90", height: "90", class: "profile-pic", style: "border-radius: 50%;" } %>
-            <% end %>
-          </div>
-        </label>
+
       </div>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= f.input :username, as: :string, required: true %>
           <%= f.input :profile_photo, as: :file, label: 'Upload a profile picture'%>
+          <%= f.input :username, as: :string, required: true %>
+
           <%= f.input :description, label: 'Describe Yourself!', as: :text %>
           <div class="input-spacing"></div>
           <%= f.input :dog_description, label: 'Let Us Know About Your Pup!', as: :text %>
           <div class="form-spacing"></div>
-          <%= f.submit "Update Your Profile", class: "submit-button", method: :patch %>
+          <%= f.submit "Update Your Profile", class: "submit-button btn-primary", method: :patch %>
         <% end %>
     </div>
   </div>

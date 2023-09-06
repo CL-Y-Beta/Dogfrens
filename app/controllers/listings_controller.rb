@@ -2,7 +2,8 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
 
   def home
-    @listings = Listing.all.limit(12)
+    @listings = Listing.all.sample(4)
+    @listings2 = Listing.all.sample(8)
   end
 
   def index
@@ -16,7 +17,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @bookmark = Bookmark.new
-    @listings = Listing.all.limit(6)
+    @listings = Listing.all.limit(8)
     @marker = { lat: @listing.latitude, lng: @listing.longitude }
   end
 
@@ -68,6 +69,6 @@ private
 
   # Only allow a list of trusted parameters through.
   def listing_params
-    params.require(:listing).permit(:title, :description, :location, :price, :quantity_left, :discount, :photo)
+    params.require(:listing).permit(:title, :description, :image_url, :location, :price, :quantity_left, :discount, :photo)
   end
 end

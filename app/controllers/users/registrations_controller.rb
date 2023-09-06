@@ -3,10 +3,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  prepend_before_action :authenticate_scope!, only: [:edit_profile, :edit, :update, :destroy]
+  prepend_before_action :authenticate_scope!, only: [:edit_profile, :create_profile, :edit, :update, :destroy]
 
   def edit_profile
     @user = current_user
+
   end
 
   def create_profile
@@ -101,7 +102,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_flash_message(:notice, :email_updated, {})
       edit_user_registration_path(resource)
     elsif params["user"][:description]
-      root_path
+      user_path(current_user)
     else
       set_flash_message(:notice, :profile_updated, {})
       edit_profile_path(resource)

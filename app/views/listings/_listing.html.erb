@@ -4,8 +4,8 @@
         <p id="listing-title"><%= listing.title %></p>
         <div class="listing-prices">
             <% final_price = listing.price - (listing.price * listing.discount / 100.0) %>
-            <b><h5>$<%= final_price.round %></h5></b>
-            <p style="white-space: nowrap;"><strong><%= listing.discount %>% OFF!</strong></p>
+            <h5>S$<%= final_price.round %></h5>
+            <p id="listing-original-price" style="white-space: nowrap;">$<s><%= listing.price %></s></p>
           </div>
       </div>
 

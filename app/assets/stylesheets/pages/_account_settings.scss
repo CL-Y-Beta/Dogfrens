@@ -9,9 +9,11 @@
 
 .account-settings-right {
   width: 950px;
-  border: 2px solid black;
+  border: 2px solid $primary-color;
   border-radius: 30px;
   padding: 20px 250px 50px 100px;
+  background-color: $accent-color;
+  box-shadow: 5px 5px 0px 0px ;
 
   h4 {
     color: $blue;
@@ -64,7 +66,35 @@
     padding: 10px 0px 0px 20px;
     background: none!important;
     border:none;
-    color: rgb(179, 177, 177);
+    color: rgb(99, 99, 99);
     font-size: 1rem;
   }
+}
+
+
+//form
+
+.form-control {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: .7px .7px 0px 2px ;
+  padding: 0.375rem 0.75rem;
+    padding-right: 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-label {
+  font-weight: 500;
 }

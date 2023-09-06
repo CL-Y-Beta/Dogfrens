@@ -12,8 +12,7 @@
 @import "pages/index";
 
 body {
-  background-color: white;
-  padding-bottom: 15rem;
+  background-color: #eae7e0;
 }
 
 
@@ -27,4 +26,8 @@ h2 {
 
 .avatar.dropdown-toggle {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }

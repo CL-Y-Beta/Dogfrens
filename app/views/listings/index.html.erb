@@ -1,12 +1,13 @@
-<div class="index-container">
+<div class="page-container">
 <h1>Browse All Dog-Deals (<%= @listings.count%>)</h1>
+  <div class="index-container">
+    <div class="listing-index-container" >
+      <% @listings.each do |listing| %>
 
-  <div class="listing-container" >
-    <% @listings.each do |listing| %>
+          <%= render listing %>
 
-        <%= render listing %>
-
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
 </div>
