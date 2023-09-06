@@ -117,4 +117,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+  def set_default_username
+    resource.username = "dogfren(00#{resource.id})"
+  end
 end
